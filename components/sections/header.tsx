@@ -5,9 +5,9 @@ import { Search } from "lucide-react";
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-4">
+    <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+      <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full shadow-lg">
+        <div className="flex items-center justify-between py-3 px-6">
           {/* Logo Section */}
           <div className="flex items-center space-x-3">
             {/* Logo Icon */}
@@ -29,13 +29,13 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <a
               href="#properties"
-              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
+              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium px-3 py-1 rounded-full hover:bg-white/20"
             >
               Properties
             </a>
             <a
               href="#community"
-              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
+              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium px-3 py-1 rounded-full hover:bg-white/20"
             >
               Community
             </a>
@@ -43,9 +43,9 @@ export function Header() {
 
           {/* Search Button */}
           <div className="flex items-center">
-            <button className="flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200">
-              <Search className="h-4 w-4 text-gray-600" />
-              <span className="text-gray-600 font-medium">Search Properties</span>
+            <button className="flex items-center space-x-2 px-4 py-2 bg-white/30 hover:bg-white/40 rounded-full transition-all duration-200 backdrop-blur-sm border border-white/20">
+              <Search className="h-4 w-4 text-gray-700" />
+              <span className="text-gray-700 font-medium">Search Properties</span>
             </button>
           </div>
         </div>
