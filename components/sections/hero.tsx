@@ -70,9 +70,6 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative">
-              {/* Background Blur Circle */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-3xl opacity-20 scale-150" />
-              
               {/* Single Phone Mockup */}
               <div className="relative z-10 flex justify-center">
                 <motion.div
