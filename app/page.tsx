@@ -13,7 +13,7 @@ export default function Home() {
     <div className="min-h-screen bg-white flex flex-col items-center">
       <Header />
       {/* Add top padding to account for fixed header */}
-      <div className="w-full max-w-7xl mx-auto">
+      <div className="w-full">
         <Hero />
         <EasySteps />
         <Properties />
