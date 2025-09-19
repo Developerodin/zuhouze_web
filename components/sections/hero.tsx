@@ -6,12 +6,24 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { SVGPhoneMockup } from "@/components/ui/svg-phone-mockup";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { TextReveal } from "@/components/ui/text-reveal";
+import { RetroGrid } from "@/components/ui/retro-grid";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white">
+      {/* Retro Grid Background - Full Width */}
+      <RetroGrid 
+        className="absolute inset-0 z-0 w-full h-full"
+        angle={65}
+        cellSize={60}
+        opacity={0.5}
+        lightLineColor="#9333ea"
+        darkLineColor="#9333ea"
+      />
+      
+      {/* Content Container - Centered */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
           {/* Left Content */}
@@ -39,16 +51,11 @@ export function Hero() {
               
               <p className="text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed">
                 <TypingAnimation 
-                  text="Explore properties around the globe in an easy, swipe-friendly style. Discover improved matchmaking that connects you with the right homes, rentals, or PGs based on your lifestyle."
+                  text="Explore properties around the globe in an easy, swipe-friendly style. Discover improved matchmaking that connects you with the right homes, rentals, or PGs based on your lifestyle.Get video tours, smart recommendations, and instant connections — all in one place."
                   speed={30}
                   delay={1000}
                 />
-                <br /><br />
-                <TypingAnimation 
-                  text="Get video tours, smart recommendations, and instant connections — all in one place."
-                  speed={30}
-                  delay={3000}
-                />
+               
               </p>
             </div>
 
@@ -83,7 +90,8 @@ export function Hero() {
                     alt="Phone Mockup"
                     width={600}
                     height={800}
-                    className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl object-contain"
+                    className=" ml-20 w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl object-contain"
+                    
                   />
                 </motion.div>
               </div>
