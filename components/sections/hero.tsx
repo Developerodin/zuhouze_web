@@ -12,7 +12,7 @@ import Image from "next/image";
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
           {/* Left Content */}
           <motion.div
@@ -27,17 +27,13 @@ export function Hero() {
                 <span className="text-sm font-medium text-purple-700">Zuhouze</span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl font-bold text-gray-900 leading-tight">
                 <TextReveal delay={0.2}>
-                  Bringing the{" "}
+                  Bringing the Global
                 </TextReveal>
-                <TextReveal delay={0.4}>
-                  <AnimatedGradientText className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                    Global Real Estate
-                  </AnimatedGradientText>
-                </TextReveal>
+                
                 <TextReveal delay={0.6}>
-                  {" "}Closer.
+                  Real Estate Closer.
                 </TextReveal>
               </h1>
               

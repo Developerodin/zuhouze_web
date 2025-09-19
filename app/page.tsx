@@ -10,11 +10,10 @@ import { GridPattern } from "@/components/ui/grid-pattern";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
-      <GridPattern className="opacity-30" />
+    <div className="min-h-screen bg-white flex flex-col items-center">
       <Header />
       {/* Add top padding to account for fixed header */}
-      <div className="pt-32">
+      <div className="w-full max-w-7xl mx-auto">
         <Hero />
         <EasySteps />
         <Properties />

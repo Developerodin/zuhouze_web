@@ -7,7 +7,7 @@ import { Facebook, Instagram, Youtube } from "lucide-react";
 export function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200 py-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Bottom Section */}
         <motion.div
           className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
