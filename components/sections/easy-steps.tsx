@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatedList, AnimatedListItem } from "@/components/ui/animated-list";
-import { MagicCard } from "@/components/ui/magic-card";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
+import { ShineBorder } from "@/components/ui/shine-border";
 import { motion } from "framer-motion";
 import { Play, Bookmark, MessageCircle, ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -12,21 +12,21 @@ const steps = [
     number: 1,
     icon: Play,
     title: "Swipe & Watch",
-    description: "scroll property videos like reels.",
+    description: "Scroll property videos like reels.",
     color: "from-blue-500 to-cyan-500",
   },
   {
     number: 2,
     icon: Bookmark,
     title: "Shortlist & Share",
-    description: "save or send to friends instantly.",
+    description: "Save or send to friends instantly.",
     color: "from-purple-500 to-pink-500",
   },
   {
     number: 3,
     icon: MessageCircle,
     title: "Connect & Visit",
-    description: "chat or schedule visits directly.",
+    description: "Chat or schedule visits directly.",
     color: "from-green-500 to-emerald-500",
   },
 ];
@@ -35,95 +35,110 @@ export function EasySteps() {
   return (
     <section className="py-20 bg-white">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="space-y-4">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-medium">
-                Journey
-              </div>
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">
-                Easy Steps
-              </h2>
-              <p className="text-xl text-gray-600">
-                Discover, shortlist, and connect - a seamless path to your new space.
-              </p>
-            </div>
+        {/* Header Section */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          {/* Journey Button */}
+          <div className="group relative mx-auto inline-flex items-center justify-center rounded-full px-4 py-1.5 bg-white shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] mb-6">
+            <span
+              className={cn(
+                "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
+              )}
+              style={{
+                WebkitMask:
+                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "destination-out",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                maskComposite: "subtract",
+                WebkitClipPath: "padding-box",
+              }}
+            />
+            <span className="relative z-10 text-sm font-medium" style={{ fontFamily: 'var(--font-fredoka)', color: '#000' }}>
+              Journey
+            </span>
+          </div>
+          
+          {/* Main Title */}
+          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4" style={{ fontFamily: 'var(--font-fredoka)' }}>
+            Easy Steps
+          </h2>
+          
+          {/* Subtitle */}
+          <p className="text-xl text-black max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-fredoka)' }}>
+            Discover, shortlist, and connect — a seamless path to your new space.
+          </p>
+        </motion.div>
 
-            <div className="space-y-6">
-              {steps.map((step, index) => (
-                <motion.div
-                  key={step.number}
-                  className="flex items-start space-x-6"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center space-x-3">
-                      <span className="text-3xl font-bold text-gray-900">{step.number}</span>
-                      <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${step.color} flex items-center justify-center`}>
-                        <step.icon className="h-6 w-6 text-white" />
-                      </div>
+        {/* Horizontal Steps Layout */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+          {/* Steps Cards */}
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                className="relative"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative bg-white rounded-2xl p-6 w-64 h-64 flex flex-col items-center text-center border border-gray-200">
+                  <ShineBorder
+                    className="absolute inset-0 rounded-2xl"
+                    shineColor={["#3B82F6", "#10B981", "#8B5CF6"]}
+                  />
+                  {/* Step Number */}
+                  <div className="relative z-10 mb-4">
+                    <span className="text-4xl font-bold" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '48px', fontWeight: 400, color: '#000' }}>{step.number}</span>
+                  </div>
+                  
+                  {/* Icon */}
+                  <div className="relative z-10 mb-4">
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center`}>
+                      <step.icon className="h-8 w-8 text-white" />
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                    <p className="text-gray-600">{step.description}</p>
+                  
+                  {/* Title */}
+                  <h3 className="relative z-10 text-lg font-bold mb-2" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '20px', fontWeight: 400, color: '#000' }}>{step.title}</h3>
+                  
+                  {/* Description */}
+                  <p className="relative z-10 text-sm" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '14px', color: '#000' }}>{step.description}</p>
+                </div>
+                
+                {/* Connection dots */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute -right-3 top-1/2 transform -translate-y-1/2">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
 
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <button className="inline-flex items-center space-x-2 px-8 py-4 bg-black text-white rounded-full hover:bg-black/90 transition-colors text-lg font-medium">
-                <span>Get Started</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Content - Image */}
+          {/* Property Image */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="relative">
-              <div className="aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/assets/easy-steps-image.png"
-                  alt="Easy Steps"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              
-              {/* Floating elements */}
-              <motion.div
-                className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500 rounded-full"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity }}
+            <div className="relative w-80 h-64 lg:w-[500px] lg:h-[400px]">
+              <Image
+                src="/assets/EasySteps.svg"
+                alt="Property showcase"
+                fill
+                className="object-cover rounded-2xl"
               />
             </div>
           </motion.div>
