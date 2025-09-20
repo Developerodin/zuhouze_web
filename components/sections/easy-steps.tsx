@@ -58,13 +58,27 @@ export function EasySteps() {
                 WebkitClipPath: "padding-box",
               }}
             />
-            <span className="relative z-10 text-sm font-medium" style={{ fontFamily: 'var(--font-fredoka)', color: '#000' }}>
-              Journey
-            </span>
+            <div className="relative z-10">
+              <AnimatedGradientText
+                className="text-sm font-medium"
+                style={{
+                  fontFamily: 'Poppins',
+                  fontSize: '18px',
+                  fontWeight: 400,
+                  background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  lineHeight: 'normal'
+                }}
+              >
+                Journey
+              </AnimatedGradientText>
+            </div>
           </div>
           
           {/* Main Title */}
-          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4" style={{ fontFamily: 'var(--font-fredoka)' }}>
+          <h2 style={{ fontFamily: 'var(--font-fredoka)',fontSize:"36px",fontWeight:400 }}>
             Easy Steps
           </h2>
           
@@ -88,12 +102,10 @@ export function EasySteps() {
                 viewport={{ once: true }}
               >
                 <div 
-                  className="relative flex flex-col items-center justify-center text-center w-full h-[300px] sm:h-[389px] px-4 py-8 sm:px-6 sm:py-12"
+                  className="relative flex flex-col items-center justify-center  w-full h-[200px] sm:h-[300px] px-4 py-8 sm:px-6 sm:py-12"
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
                     gap: '16px',
                     borderRadius: '26px',
                     border:"1px solid #f1f1f1",
@@ -103,9 +115,9 @@ export function EasySteps() {
                     marginRight: '0'
                   }}
                 >
-                  {/* Step Number */}
+      
                   <div className="relative z-10">
-                    <span className="text-4xl font-bold" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '48px', fontWeight: 400, color: '#000' }}>{step.number}</span>
+                    <span style={{ fontFamily: 'var(--font-fredoka)', fontSize: '18px', fontWeight: 400, color: '#000' }}>{step.number}</span>
                   </div>
                   
                   {/* Icon */}
@@ -148,14 +160,14 @@ export function EasySteps() {
             viewport={{ once: true }}
           >
             <div 
-              className="relative w-full h-[300px] sm:h-[389px] lg:h-[389px]"
+              className="relative w-full h-[200px] sm:h-[300px] lg:h-[300px]"
               style={{
                 width: '60%',
                 minWidth: '168px',
                 maxWidth: '192px',
-                borderRadius: '0 16px 16px 0',
+                borderRadius: '26px',
                 overflow: 'hidden',
-                border: '1px solid #E5E5E5',
+                border: '1px solid #f1f1f1',
                 borderLeft: 'none',
                 marginLeft: '0'
               }}
