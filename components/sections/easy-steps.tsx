@@ -75,50 +75,64 @@ export function EasySteps() {
         </motion.div>
 
         {/* Horizontal Steps Layout */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
-          {/* Steps Cards */}
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0">
+          {/* Steps Cards Container */}
+          <div className="flex flex-col sm:flex-row lg:flex-row items-center gap-0 lg:gap-0 w-full lg:w-auto" style={{gap:30}}>
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
-                className="relative"
+                className="relative w-full sm:w-1/3 lg:w-auto"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="relative bg-white rounded-2xl p-6 w-64 h-64 flex flex-col items-center text-center border border-gray-200">
-                  <ShineBorder
-                    className="absolute inset-0 rounded-2xl"
-                    shineColor={["#3B82F6", "#10B981", "#8B5CF6"]}
-                  />
+                <div 
+                  className="relative flex flex-col items-center justify-center text-center w-full h-[300px] sm:h-[389px] px-4 py-8 sm:px-6 sm:py-12"
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '16px',
+                    borderRadius: '26px',
+                    border:"1px solid #f1f1f1",
+                    background: '#F8F8F8',
+                    minWidth: '280px',
+                    maxWidth: '320px',
+                    marginRight: '0'
+                  }}
+                >
                   {/* Step Number */}
-                  <div className="relative z-10 mb-4">
+                  <div className="relative z-10">
                     <span className="text-4xl font-bold" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '48px', fontWeight: 400, color: '#000' }}>{step.number}</span>
                   </div>
                   
                   {/* Icon */}
-                  <div className="relative z-10 mb-4">
+                  <div className="relative z-10">
                     <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center`}>
                       <step.icon className="h-8 w-8 text-white" />
                     </div>
                   </div>
                   
                   {/* Title */}
-                  <h3 className="relative z-10 text-lg font-bold mb-2" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '20px', fontWeight: 400, color: '#000' }}>{step.title}</h3>
+                  <h3 className="relative z-10 text-lg font-bold" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '20px', fontWeight: 400, color: '#000' }}>{step.title}</h3>
                   
                   {/* Description */}
-                  <p className="relative z-10 text-sm" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '14px', color: '#000' }}>{step.description}</p>
+                  <p className="relative z-10 text-sm" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '14px', color: '#666' }}>{step.description}</p>
                 </div>
                 
-                {/* Connection dots */}
+                {/* Connecting dots between cards */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute -right-3 top-1/2 transform -translate-y-1/2">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    </div>
+                  <div className="hidden sm:block absolute -right-5 top-1/2 transform -translate-y-1/2 z-20">
+                    <div 
+                      style={{
+                        width: '8px',
+                        height: '8px',
+                        backgroundColor: '#10B981',
+                        borderRadius: '50%',
+                      }}
+                    ></div>
                   </div>
                 )}
               </motion.div>
@@ -127,18 +141,30 @@ export function EasySteps() {
 
           {/* Property Image */}
           <motion.div
-            className="relative"
+            className="relative w-full lg:w-auto"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="relative w-80 h-64 lg:w-[500px] lg:h-[400px]">
+            <div 
+              className="relative w-full h-[300px] sm:h-[389px] lg:h-[389px]"
+              style={{
+                width: '60%',
+                minWidth: '168px',
+                maxWidth: '192px',
+                borderRadius: '0 16px 16px 0',
+                overflow: 'hidden',
+                border: '1px solid #E5E5E5',
+                borderLeft: 'none',
+                marginLeft: '0'
+              }}
+            >
               <Image
                 src="/assets/EasySteps.svg"
                 alt="Property showcase"
                 fill
-                className="object-cover rounded-2xl"
+                className="object-cover"
               />
             </div>
           </motion.div>
