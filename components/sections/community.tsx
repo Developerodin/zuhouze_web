@@ -1,8 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { MagicCard } from "@/components/ui/magic-card";
 import { Marquee } from "@/components/ui/marquee";
+import { MarqueeDemo } from "@/components/ui/marquee-demo";
+import { AvatarCirclesDemo } from "@/components/ui/avatar-circles-demo";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -61,8 +64,23 @@ export function Community() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-medium mb-4">
-            Users
+          <div className="group relative inline-flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] mb-4">
+            <span
+              className={cn(
+                "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
+              )}
+              style={{
+                WebkitMask:
+                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "destination-out",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                maskComposite: "subtract",
+                WebkitClipPath: "padding-box",
+              }}
+            />
+            <AnimatedGradientText className="text-sm font-medium">
+              Users
+            </AnimatedGradientText>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Community
@@ -77,27 +95,7 @@ export function Community() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="flex -space-x-2">
-            {avatars.map((avatar, index) => (
-              <motion.div
-                key={index}
-                className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg border-2 border-white shadow-lg overflow-hidden"
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.1 }}
-              >
-                <Image
-                  src={avatar}
-                  alt={`User ${index + 1}`}
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            ))}
-          </div>
+          <AvatarCirclesDemo />
         </motion.div>
 
         {/* Testimonials Marquee */}
@@ -108,29 +106,7 @@ export function Community() {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <Marquee pauseOnHover className="[--duration:20s]">
-            {testimonials.map((testimonial) => (
-              <MagicCard key={testimonial.id} className="mx-4 w-80">
-                <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 h-full border border-gray-200">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg overflow-hidden">
-                      <Image
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        width={48}
-                        height={48}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900">{testimonial.name}</h3>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 italic">"{testimonial.quote}"</p>
-                </div>
-              </MagicCard>
-            ))}
-          </Marquee>
+          <MarqueeDemo />
         </motion.div>
 
         {/* Waitlist Form */}

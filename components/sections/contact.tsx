@@ -5,11 +5,31 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card } from "@/components/ui/card";
 import { Globe } from "@/components/ui/globe";
+import { AnimatedBeam } from "@/components/ui/animated-beam";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Users, Mail, Phone, MapPin } from "lucide-react";
+import { useState, forwardRef, useRef } from "react";
+import { Users, Mail, Phone, MapPin, MessageCircle, Send, Heart, Star, ChevronRight } from "lucide-react";
+
+const Circle = forwardRef<
+  HTMLDivElement,
+  { className?: string; children?: React.ReactNode }
+>(({ className, children }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+});
+
+Circle.displayName = "Circle";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -17,6 +37,16 @@ export function Contact() {
     email: "",
     message: "",
   });
+
+  // Refs for animated beam
+  const containerRef = useRef<HTMLDivElement>(null);
+  const div1Ref = useRef<HTMLDivElement>(null);
+  const div2Ref = useRef<HTMLDivElement>(null);
+  const div3Ref = useRef<HTMLDivElement>(null);
+  const div4Ref = useRef<HTMLDivElement>(null);
+  const div5Ref = useRef<HTMLDivElement>(null);
+  const div6Ref = useRef<HTMLDivElement>(null);
+  const div7Ref = useRef<HTMLDivElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,152 +71,181 @@ export function Contact() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-medium mb-4">
-            Contact
+          <div className="group relative inline-flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] mb-4">
+            <span
+              className={cn(
+                "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
+              )}
+              style={{
+                WebkitMask:
+                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "destination-out",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                maskComposite: "subtract",
+                WebkitClipPath: "padding-box",
+              }}
+            />
+            <AnimatedGradientText className="text-sm font-medium">
+              Contact
+            </AnimatedGradientText>
+          
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Let's Connect
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content - Network Diagram */}
-          <motion.div
-            className="relative flex justify-center items-center"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="relative w-80 h-80">
-              {/* Central Brain/Tree Icon */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🧠</span>
-                </div>
-              </div>
-              
-              {/* Person Icons around the center */}
-              {[0, 1, 2, 3, 4, 5].map((index) => {
-                const angle = (index * 60) * (Math.PI / 180);
-                const radius = 120;
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
-                
-                return (
-                  <motion.div
-                    key={index}
-                    className="absolute w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center"
-                    style={{
-                      left: `calc(50% + ${x}px - 24px)`,
-                      top: `calc(50% + ${y}px - 24px)`,
-                    }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <span className="text-lg">👤</span>
-                  </motion.div>
-                );
-              })}
-              
-              {/* Connection Lines */}
-              {[0, 1, 2, 3, 4, 5].map((index) => {
-                const angle = (index * 60) * (Math.PI / 180);
-                const radius = 120;
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
-                
-                return (
-                  <motion.div
-                    key={`line-${index}`}
-                    className="absolute w-px bg-gray-300"
-                    style={{
-                      left: '50%',
-                      top: '50%',
-                      height: `${radius}px`,
-                      transformOrigin: '0 0',
-                      transform: `rotate(${angle}rad)`,
-                    }}
-                    initial={{ scaleY: 0 }}
-                    whileInView={{ scaleY: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                    viewport={{ once: true }}
-                  />
-                );
-              })}
+        {/* Animated Beam Section */}
+        <motion.div
+          className="relative flex h-[400px] w-full items-center justify-center overflow-hidden p-10 mb-16"
+          ref={containerRef}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex size-full max-h-[300px] max-w-2xl flex-col items-stretch justify-between gap-10">
+            <div className="flex flex-row items-center justify-between">
+              <Circle ref={div1Ref}>
+                <MessageCircle className="h-6 w-6 text-blue-500" />
+              </Circle>
+              <Circle ref={div5Ref}>
+                <Mail className="h-6 w-6 text-green-500" />
+              </Circle>
             </div>
-          </motion.div>
+            <div className="flex flex-row items-center justify-between">
+              <Circle ref={div2Ref}>
+                <Phone className="h-6 w-6 text-purple-500" />
+              </Circle>
+              <Circle ref={div4Ref} className="size-16">
+                <Heart className="h-8 w-8 text-red-500" />
+              </Circle>
+              <Circle ref={div6Ref}>
+                <Star className="h-6 w-6 text-yellow-500" />
+              </Circle>
+            </div>
+            <div className="flex flex-row items-center justify-between">
+              <Circle ref={div3Ref}>
+                <Users className="h-6 w-6 text-indigo-500" />
+              </Circle>
+              <Circle ref={div7Ref}>
+                <Send className="h-6 w-6 text-pink-500" />
+              </Circle>
+            </div>
+          </div>
 
-          {/* Right Content - Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <Card className="p-8 shadow-lg">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Enter your Name
-                  </label>
-                  <Input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your full name"
-                    required
-                    className="w-full"
-                  />
-                </div>
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div1Ref}
+            toRef={div4Ref}
+            curvature={-75}
+            endYOffset={-10}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div2Ref}
+            toRef={div4Ref}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div3Ref}
+            toRef={div4Ref}
+            curvature={75}
+            endYOffset={10}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div5Ref}
+            toRef={div4Ref}
+            curvature={-75}
+            endYOffset={-10}
+            reverse
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div6Ref}
+            toRef={div4Ref}
+            reverse
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div7Ref}
+            toRef={div4Ref}
+            curvature={75}
+            endYOffset={10}
+            reverse
+          />
+        </motion.div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Enter your Email
-                  </label>
-                  <Input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your.email@example.com"
-                    required
-                    className="w-full"
-                  />
-                </div>
+        {/* Contact Form Section */}
+        <motion.div
+          className="max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+         
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    placeholder="Tell us about your requirements..."
-                    required
-                    className="w-full"
-                  />
-                </div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                Full Name
+              </label>
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your full name"
+                required
+                className="w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+              />
+            </div>
 
-                <ShimmerButton
-                  type="submit"
-                  className="w-full py-4 text-lg font-semibold"
-                  onClick={() => {}}
-                >
-                  Let's Talk
-                </ShimmerButton>
-              </form>
-            </Card>
-          </motion.div>
-        </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email Address
+              </label>
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                required
+                className="w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                Message
+              </label>
+              <Textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={5}
+                placeholder="Tell us about your project or requirements..."
+                required
+                className="w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+              />
+            </div>
+
+            <div className="text-center mt-8">
+              <button
+                className="px-6 py-2 bg-black text-white  hover:bg-gray-800 transition-colors duration-300 font-medium text-base rounded-md"
+                onClick={() => handleSubmit(new Event('submit') as any)}
+              >
+                Let's Talk
+              </button>
+            </div>
+          </form>
+        </motion.div>
       </div>
     </section>
   );
