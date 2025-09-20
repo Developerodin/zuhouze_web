@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { MagicCard } from "@/components/ui/magic-card";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
@@ -16,45 +17,40 @@ const properties = [
     title: "Luxury Penthouse",
     price: "₹2.5 Cr",
     location: "Mumbai",
-    image: "/assets/property-card-1-54c81e.png",
+    image: "/assets/properties.svg",
     verified: true,
     new: true,
+    size: "small"
   },
   {
     id: 2,
     title: "Modern Apartment",
     price: "₹1.8 Cr",
     location: "Mumbai",
-    image: "/assets/property-card-2-54c81e.png",
+    image: "/assets/properties_2.svg",
     verified: true,
     new: false,
+    size: "large"
   },
   {
     id: 3,
     title: "Villa with Garden",
     price: "₹3.2 Cr",
     location: "Mumbai",
-    image: "/assets/property-card-3-54c81e.png",
+    image: "/assets/properties.svg",
     verified: true,
     new: true,
+    size: "large"
   },
   {
     id: 4,
     title: "Studio Apartment",
     price: "₹95 L",
     location: "Mumbai",
-    image: "/assets/property-card-4-54c81e.png",
+    image: "/assets/properties_2.svg",
     verified: true,
     new: false,
-  },
-  {
-    id: 5,
-    title: "Duplex House",
-    price: "₹2.1 Cr",
-    location: "Mumbai",
-    image: "/assets/property-card-5-54c81e.png",
-    verified: true,
-    new: false,
+    size: "small"
   },
 ];
 
@@ -62,19 +58,52 @@ export function Properties() {
   const [activeLocation, setActiveLocation] = useState("Mumbai");
 
   return (
-    <section id="properties" className="py-20 bg-gray-50">
+    <section id="properties" className="py-20 bg-white">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-medium mb-4">
-            Spaces
+          {/* Spaces Button with Gradient Text */}
+          <div className="group relative mx-auto inline-flex items-center justify-center rounded-full px-4 py-1.5 bg-white shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] mb-6">
+            <span
+              className={cn(
+                "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
+              )}
+              style={{
+                WebkitMask:
+                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "destination-out",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                maskComposite: "subtract",
+                WebkitClipPath: "padding-box",
+              }}
+            />
+            <div className="relative z-10">
+              <AnimatedGradientText
+                className="text-sm font-medium"
+                style={{
+                  fontFamily: 'Poppins',
+                  fontSize: '18px',
+                  fontWeight: 400,
+                  background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  lineHeight: 'normal'
+                }}
+              >
+                Spaces
+              </AnimatedGradientText>
+            </div>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          
+          {/* Main Title */}
+          <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "36px", fontWeight: 400, color: '#000' }}>
             Properties
           </h2>
         </motion.div>
@@ -105,54 +134,103 @@ export function Properties() {
           </div>
         </motion.div>
 
-        {/* Property Grid */}
+        {/* Property Grid - 2x2 Layout */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          className="flex flex-col gap-6 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          {properties.map((property, index) => (
+          {/* First Row: Small + Large */}
+          <div className="flex flex-col lg:flex-row gap-6">
             <motion.div
-              key={property.id}
               className="group cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative group-hover:scale-105">
-                <div className="relative">
-                  <div className="aspect-square bg-gray-200 overflow-hidden">
-                    <Image
-                      src={property.image}
-                      alt={property.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="absolute top-4 left-4 flex space-x-2">
-                    {property.verified && (
-                      <span className="px-3 py-1 bg-green-500 text-white text-xs font-medium rounded-full">
-                        Verified
-                      </span>
-                    )}
-                    {property.new && (
-                      <span className="px-3 py-1 bg-blue-500 text-white text-xs font-medium rounded-full">
-                        New this week
-                      </span>
-                    )}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{property.title}</h3>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">{property.price}</p>
-                  <p className="text-gray-600">{property.location}</p>
+              <div 
+                className="bg-black rounded-2xl overflow-hidden relative group-hover:scale-105 transition-all duration-300 w-full lg:w-[336px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src={properties[0].image}
+                    alt={properties[0].title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
               </div>
             </motion.div>
-          ))}
+            
+            <motion.div
+              className="group cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div 
+                className="bg-black rounded-2xl overflow-hidden relative group-hover:scale-105 transition-all duration-300 w-full lg:w-[896px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src={properties[1].image}
+                    alt={properties[1].title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Second Row: Large + Small */}
+          <div className="flex flex-col lg:flex-row gap-6">
+            <motion.div
+              className="group cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div 
+                className="bg-black rounded-2xl overflow-hidden relative group-hover:scale-105 transition-all duration-300 w-full lg:w-[896px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src={properties[2].image}
+                    alt={properties[2].title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="group cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div 
+                className="bg-black rounded-2xl overflow-hidden relative group-hover:scale-105 transition-all duration-300 w-full lg:w-[336px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src={properties[3].image}
+                    alt={properties[3].title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* CTA Button */}
@@ -163,12 +241,12 @@ export function Properties() {
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <ShimmerButton
-            className="px-8 py-4 text-lg font-semibold"
+          <button
+            className="px-8 py-4 bg-white text-black text-lg font-semibold rounded-2xl border border-gray-200 hover:bg-gray-50 transition-colors duration-300"
             onClick={() => {}}
           >
             Explore All Properties
-          </ShimmerButton>
+          </button>
         </motion.div>
       </div>
     </section>

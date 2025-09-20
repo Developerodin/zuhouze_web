@@ -92,50 +92,126 @@ export function EasySteps() {
         <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0">
           {/* Steps Cards Container */}
           <div className="flex flex-col sm:flex-row lg:flex-row items-center gap-0 lg:gap-0 w-full lg:w-auto" style={{gap:30}}>
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                className="relative w-full sm:w-1/3 lg:w-auto"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div 
-                  className="relative flex flex-col items-center justify-center  w-full h-[200px] sm:h-[300px] px-4 py-8 sm:px-6 sm:py-12"
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                    borderRadius: '26px',
-                    border:"1px solid #f1f1f1",
-                    background: '#F8F8F8',
-                    minWidth: '280px',
-                    maxWidth: '320px',
-                    marginRight: '0'
-                  }}
-                >
-      
-                  <div className="relative z-10">
-                    <span style={{ fontFamily: 'var(--font-fredoka)', fontSize: '18px', fontWeight: 400, color: '#000' }}>{step.number}</span>
-                  </div>
-                  
-                  {/* Icon */}
-                  <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center`}>
-                      <step.icon className="h-8 w-8 text-white" />
+            {steps.map((step, index) => {
+              // For the last card, create a merged container with image
+              if (index === steps.length - 1) {
+                return (
+                  <motion.div
+                    key={step.number}
+                    className="relative w-full sm:w-auto lg:w-auto"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    {/* Merged Card + Image Container */}
+                    <div 
+                      className="relative flex w-full"
+                      style={{
+                        width: '850px',
+                        height: '300px',
+                        borderRadius: '26px',
+                        border: '1px solid #f1f1f1',
+                        background: '#F8F8F8',
+                        overflow: 'hidden'
+                      }}
+                    >
+                      {/* Card Section */}
+                      <div 
+                        className="relative flex flex-col items-center justify-center"
+                        style={{
+                          width: '326px', // 850 - 524 = 326px for card
+                          height: '100%',
+                          padding: '48px 24px',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          gap: '16px'
+                        }}
+                      >
+                        <div className="relative z-10">
+                          <span style={{ fontFamily: 'var(--font-fredoka)', fontSize: '18px', fontWeight: 400, color: '#000' }}>{step.number}</span>
+                        </div>
+                        
+                        {/* Icon */}
+                        <div className="relative z-10">
+                          <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center`}>
+                            <step.icon className="h-8 w-8 text-white" />
+                          </div>
+                        </div>
+                        
+                        {/* Title */}
+                        <h3 className="relative z-10 text-lg font-bold" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '20px', fontWeight: 400, color: '#000' }}>{step.title}</h3>
+                        
+                        {/* Description */}
+                        <p className="relative z-10 text-sm" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '14px', color: '#666' }}>{step.description}</p>
+                      </div>
+
+                      {/* Image Section */}
+                      <div 
+                        className="relative"
+                        style={{
+                          width: '524px',
+                          height: '100%',
+                          overflow: 'hidden'
+                        }}
+                      >
+                        <Image
+                          src="/assets/EasySteps.svg"
+                          alt="Property showcase"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                     </div>
+                  </motion.div>
+                );
+              }
+
+              // Regular cards for first two steps
+              return (
+                <motion.div
+                  key={step.number}
+                  className="relative w-full sm:w-1/3 lg:w-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <div 
+                    className="relative flex flex-col items-center justify-center  w-full h-[200px] sm:h-[300px] px-4 py-8 sm:px-6 sm:py-12"
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '16px',
+                      borderRadius: '26px',
+                      border:"1px solid #f1f1f1",
+                      background: '#F8F8F8',
+                      minWidth: '280px',
+                      maxWidth: '320px',
+                      marginRight: '0'
+                    }}
+                  >
+                    <div className="relative z-10">
+                      <span style={{ fontFamily: 'var(--font-fredoka)', fontSize: '18px', fontWeight: 400, color: '#000' }}>{step.number}</span>
+                    </div>
+                    
+                    {/* Icon */}
+                    <div className="relative z-10">
+                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center`}>
+                        <step.icon className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="relative z-10 text-lg font-bold" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '20px', fontWeight: 400, color: '#000' }}>{step.title}</h3>
+                    
+                    {/* Description */}
+                    <p className="relative z-10 text-sm" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '14px', color: '#666' }}>{step.description}</p>
                   </div>
                   
-                  {/* Title */}
-                  <h3 className="relative z-10 text-lg font-bold" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '20px', fontWeight: 400, color: '#000' }}>{step.title}</h3>
-                  
-                  {/* Description */}
-                  <p className="relative z-10 text-sm" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '14px', color: '#666' }}>{step.description}</p>
-                </div>
-                
-                {/* Connecting dots between cards */}
-                {index < steps.length - 1 && (
+                  {/* Connecting dots between cards */}
                   <div className="hidden sm:block absolute -right-5 top-1/2 transform -translate-y-1/2 z-20">
                     <div 
                       style={{
@@ -146,40 +222,10 @@ export function EasySteps() {
                       }}
                     ></div>
                   </div>
-                )}
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
-
-          {/* Property Image */}
-          <motion.div
-            className="relative w-full lg:w-auto"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <div 
-              className="relative w-full h-[200px] sm:h-[300px] lg:h-[300px]"
-              style={{
-                width: '60%',
-                minWidth: '168px',
-                maxWidth: '192px',
-                borderRadius: '26px',
-                overflow: 'hidden',
-                border: '1px solid #f1f1f1',
-                borderLeft: 'none',
-                marginLeft: '0'
-              }}
-            >
-              <Image
-                src="/assets/EasySteps.svg"
-                alt="Property showcase"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
