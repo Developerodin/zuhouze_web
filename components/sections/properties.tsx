@@ -37,7 +37,7 @@ const properties = [
     title: "Villa with Garden",
     price: "₹3.2 Cr",
     location: "Mumbai",
-    image: "/assets/properties.svg",
+    image: "/assets/properties_2.svg",
     verified: true,
     new: true,
     size: "large"
@@ -47,7 +47,7 @@ const properties = [
     title: "Studio Apartment",
     price: "₹95 L",
     location: "Mumbai",
-    image: "/assets/properties_2.svg",
+    image: "/assets/properties.svg",
     verified: true,
     new: false,
     size: "small"
@@ -116,17 +116,24 @@ export function Properties() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
+          <div className="flex gap-3">
             {locations.map((location) => (
               <button
                 key={location}
                 onClick={() => setActiveLocation(location)}
                 className={cn(
-                  "px-6 py-2 rounded-md text-sm font-medium transition-colors",
+                  "flex items-center justify-center transition-all duration-300",
+                  "px-[54px] py-2 rounded-[26px]",
+                  "text-[18px] font-normal",
+                  "border-2",
                   activeLocation === location
-                    ? "bg-black text-white"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "bg-black text-white border-black"
+                    : "bg-white text-black border-[#F1F1F1] hover:border-gray-300"
                 )}
+                style={{
+                  fontFamily: 'Poppins',
+                  lineHeight: 'normal'
+                }}
               >
                 {location}
               </button>
@@ -152,14 +159,14 @@ export function Properties() {
               viewport={{ once: true }}
             >
               <div 
-                className="bg-black rounded-2xl overflow-hidden relative group-hover:scale-105 transition-all duration-300 w-full lg:w-[336px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
+                className=" overflow-hidden relative w-full lg:w-[336px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
               >
                 <div className="relative w-full h-full">
                   <Image
                     src={properties[0].image}
                     alt={properties[0].title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -173,14 +180,14 @@ export function Properties() {
               viewport={{ once: true }}
             >
               <div 
-                className="bg-black rounded-2xl overflow-hidden relative group-hover:scale-105 transition-all duration-300 w-full lg:w-[896px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
+                className=" overflow-hidden relative w-full lg:w-[896px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
               >
                 <div className="relative w-full h-full">
                   <Image
                     src={properties[1].image}
                     alt={properties[1].title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -197,14 +204,14 @@ export function Properties() {
               viewport={{ once: true }}
             >
               <div 
-                className="bg-black rounded-2xl overflow-hidden relative group-hover:scale-105 transition-all duration-300 w-full lg:w-[896px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
+                className="overflow-hidden relative w-full lg:w-[896px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
               >
                 <div className="relative w-full h-full">
                   <Image
                     src={properties[2].image}
                     alt={properties[2].title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -218,14 +225,14 @@ export function Properties() {
               viewport={{ once: true }}
             >
               <div 
-                className="bg-black rounded-2xl overflow-hidden relative group-hover:scale-105 transition-all duration-300 w-full lg:w-[336px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
+                className=" overflow-hidden relative w-full lg:w-[336px] h-[300px] sm:h-[400px] lg:h-[438.75px]"
               >
                 <div className="relative w-full h-full">
                   <Image
                     src={properties[3].image}
                     alt={properties[3].title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -242,7 +249,8 @@ export function Properties() {
           viewport={{ once: true }}
         >
           <button
-            className="px-8 py-4 bg-white text-black text-lg font-semibold rounded-2xl border border-gray-200 hover:bg-gray-50 transition-colors duration-300"
+            className="px-6 py-3 text-base font-semibold bg-white text-black hover:bg-black/90 hover:text-white border border-[#E5E5E5]"
+            style={{borderRadius:"10px"}}
             onClick={() => {}}
           >
             Explore All Properties

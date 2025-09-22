@@ -64,7 +64,8 @@ export function Community() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="group relative inline-flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] mb-4">
+          {/* Users Button with Gradient Text */}
+          <div className="group relative mx-auto inline-flex items-center justify-center rounded-full px-4 py-1.5 bg-white shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] mb-6">
             <span
               className={cn(
                 "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
@@ -78,11 +79,27 @@ export function Community() {
                 WebkitClipPath: "padding-box",
               }}
             />
-            <AnimatedGradientText className="text-sm font-medium">
-              Users
-            </AnimatedGradientText>
+            <div className="relative z-10">
+              <AnimatedGradientText
+                className="text-sm font-medium"
+                style={{
+                  fontFamily: 'Poppins',
+                  fontSize: '18px',
+                  fontWeight: 400,
+                  background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  lineHeight: 'normal'
+                }}
+              >
+                Users
+              </AnimatedGradientText>
+            </div>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          
+          {/* Main Title */}
+          <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "36px", fontWeight: 400, color: '#000' }}>
             Community
           </h2>
         </motion.div>

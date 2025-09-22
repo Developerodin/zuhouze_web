@@ -17,7 +17,7 @@ export function Footer() {
           viewport={{ once: true }}
         >
           <p className="text-gray-600 text-sm">
-            Copyright © 2023 Zuhouze. All rights reserved.
+            Copyright © 2025 Zuhouze. All rights reserved.
           </p>
           <div className="flex items-center space-x-6">
             <a
