@@ -10,21 +10,21 @@ import Image from "next/image";
 const steps = [
   {
     number: 1,
-    icon: Play,
+    image: "/assets/Swipe.png",
     title: "Swipe & Watch",
     description: "Scroll property videos like reels.",
     color: "from-blue-500 to-cyan-500",
   },
   {
     number: 2,
-    icon: Bookmark,
+    image: "/assets/Shortlist.png",
     title: "Shortlist & Share",
     description: "Save or send to friends instantly.",
     color: "from-purple-500 to-pink-500",
   },
   {
     number: 3,
-    icon: MessageCircle,
+    image: "/assets/Connect.png",
     title: "Connect & Visit",
     description: "Chat or schedule visits directly.",
     color: "from-green-500 to-emerald-500",
@@ -136,9 +136,13 @@ export function EasySteps() {
                         
                         {/* Icon */}
                         <div className="relative z-10">
-                          <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center`}>
-                            <step.icon className="h-8 w-8 text-white" />
-                          </div>
+                          <Image
+                            src={step.image}
+                            alt={step.title}
+                            width={78}
+                            height={78}
+                            className="object-contain"
+                          />
                         </div>
                         
                         {/* Title */}
@@ -199,9 +203,13 @@ export function EasySteps() {
                     
                     {/* Icon */}
                     <div className="relative z-10">
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center`}>
-                        <step.icon className="h-8 w-8 text-white" />
-                      </div>
+                      <Image
+                        src={step.image}
+                        alt={step.title}
+                        width={78}
+                        height={78}
+                        className="object-contain"
+                      />
                     </div>
                     
                     {/* Title */}
