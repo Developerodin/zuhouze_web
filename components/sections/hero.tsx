@@ -19,8 +19,7 @@ export function Hero() {
         angle={65}
         cellSize={60}
         opacity={0.5}
-        lightLineColor="#9333ea"
-        darkLineColor="#9333ea"
+        darkLineColor="#EDEDED"
       />
       
       {/* Content Container - Centered */}
