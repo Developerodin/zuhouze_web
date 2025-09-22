@@ -35,21 +35,81 @@ export function Hero() {
           >
             <div className="space-y-6">
               {/* Zuhouze Badge */}
-              <div className="inline-flex items-center px-4 py-2 rounded-full border-2 border-purple-200 bg-purple-50">
-                <span className="text-sm font-medium text-purple-700">Zuhouze</span>
+              <div className="group relative mx-auto inline-flex items-center justify-center rounded-full px-4 py-1.5 bg-white shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f]">
+                <span
+                  className={cn(
+                    "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
+                  )}
+                  style={{
+                    WebkitMask:
+                      "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                    WebkitMaskComposite: "destination-out",
+                    mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                    maskComposite: "subtract",
+                    WebkitClipPath: "padding-box",
+                  }}
+                />
+                <div className="relative z-10">
+                  <AnimatedGradientText
+                    className="text-sm font-medium"
+                    style={{
+                      fontFamily: 'Fredoka',
+                      fontSize: '18px',
+                      fontWeight: 400,
+                      background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      lineHeight: 'normal'
+                    }}
+                  >
+                    Zuhouze
+                  </AnimatedGradientText>
+                </div>
               </div>
 
-              <h1 className="text-3xl font-bold text-gray-900 leading-tight">
+              <h1 
+                className="leading-tight"
+                style={{
+                  color: "#000",
+                  fontFamily: "Fredoka",
+                  fontSize: "36px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "normal"
+                }}
+              >
                 <TextReveal delay={0.2}>
-                  Bringing the Global
+                  Bringing the <AnimatedGradientText
+                    style={{
+                      background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Global
+                  </AnimatedGradientText>
                 </TextReveal>
                 
                 <TextReveal delay={0.6}>
-                  Real Estate Closer.
+                  <AnimatedGradientText
+                    style={{
+                      background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Real Estate
+                  </AnimatedGradientText> Closer.
                 </TextReveal>
               </h1>
               
-              <p className="text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed">
+              <p 
+                className=" max-w-xl leading-relaxed"
+                style={{ fontFamily: "Poppins", fontSize: "18px", fontWeight: 400, lineHeight: "normal" ,color:"#000"}}
+              >
                 <TypingAnimation 
                   text="Explore properties around the globe in an easy, swipe-friendly style. Discover improved matchmaking that connects you with the right homes, rentals, or PGs based on your lifestyle.Get video tours, smart recommendations, and instant connections — all in one place."
                   speed={30}
@@ -61,7 +121,8 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <ShimmerButton
-                className="px-6 py-3 text-base font-semibold bg-black text-white hover:bg-black/90"
+                className="px-6 py-3 text-base font-semibold bg-black text-white hover:bg-black/90 hover:text-black "
+                borderRadius="10px"
                 onClick={() => {}}
               >
                 Download App
