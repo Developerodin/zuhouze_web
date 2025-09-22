@@ -205,60 +205,85 @@ export function Contact() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              {/* <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                 Full Name
-              </label>
+              </label> */}
               <Input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Enter your full name"
+                placeholder="Enter your Name"
                 required
-                className="w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                className="w-full"
+                style={{
+                  padding: '14px 24px',
+                  alignItems: 'center',
+                  gap: '10px',
+                  borderRadius: '8px',
+                  border: '1px solid #E5E5E5',
+                  background: '#F8F8F8'
+                }}
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              {/* <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
-              </label>
+              </label> */}
               <Input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Enter your email"
+                placeholder="Enter your Email"
                 required
-                className="w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                className="w-full"
+                style={{
+                  padding: '14px 24px',
+                  alignItems: 'center',
+                  gap: '10px',
+                  borderRadius: '8px',
+                  border: '1px solid #E5E5E5',
+                  background: '#F8F8F8'
+                }}
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+              {/* <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                 Message
-              </label>
+              </label> */}
               <Textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                rows={5}
-                placeholder="Tell us about your project or requirements..."
+                rows={7}
+                placeholder="Your Message"
                 required
-                className="w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                className="w-full"
+                style={{
+                  padding: '14px 24px',
+                  alignItems: 'center',
+                  gap: '10px',
+                  borderRadius: '8px',
+                  border: '1px solid #E5E5E5',
+                  background: '#F8F8F8'
+                }}
               />
             </div>
 
-            <div className="text-center mt-8">
-              <button
-                className="px-6 py-2 bg-black text-white  hover:bg-gray-800 transition-colors duration-300 font-medium text-base rounded-md"
+            <div className="flex justify-center mt-8">
+              <ShimmerButton
+                className="px-6 py-3 text-base font-semibold bg-black text-white hover:bg-black/90 hover:text-black"
+                borderRadius="10px"
                 onClick={() => handleSubmit(new Event('submit') as any)}
               >
                 Let's Talk
-              </button>
+              </ShimmerButton>
             </div>
           </form>
         </motion.div>

@@ -6,6 +6,7 @@ import { MagicCard } from "@/components/ui/magic-card";
 import { Marquee } from "@/components/ui/marquee";
 import { MarqueeDemo } from "@/components/ui/marquee-demo";
 import { AvatarCirclesDemo } from "@/components/ui/avatar-circles-demo";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -141,9 +142,13 @@ export function Community() {
                 placeholder="Enter your email..."
                 className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
-              <button className="px-6 py-3 bg-black text-white rounded-lg hover:bg-black/90 transition-colors font-medium">
+              <ShimmerButton
+                className="px-6 py-3 text-base font-semibold bg-black text-white hover:bg-black/90 hover:text-black"
+                borderRadius="10px"
+                onClick={() => {}}
+              >
                 Join the waitlist
-              </button>
+              </ShimmerButton>
             </div>
           </div>
         </motion.div>
