@@ -93,7 +93,7 @@ export function EasySteps() {
           {/* Steps Cards Container */}
           <div className="flex flex-col sm:flex-row lg:flex-row items-center gap-0 lg:gap-0 w-full lg:w-auto" style={{gap:30}}>
             {steps.map((step, index) => {
-              // For the last card, create a merged container with image
+              // For the last card, create a merged container with image (desktop only)
               if (index === steps.length - 1) {
                 return (
                   <motion.div
@@ -104,30 +104,20 @@ export function EasySteps() {
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                     viewport={{ once: true }}
                   >
-                    {/* Merged Card + Image Container */}
-                    <div 
-                      className="relative flex w-full"
-                      style={{
-                        width: '850px',
-                        height: '300px',
-                        borderRadius: '26px',
-                        border: '1px solid #f1f1f1',
-                        background: '#F8F8F8',
-                        overflow: 'hidden'
-                      }}
-                    >
-                      {/* Card Section */}
+                    {/* Mobile: Regular card like other steps */}
+                    <div className="block lg:hidden">
                       <div 
-                        className="relative flex flex-col items-center justify-center"
+                        className="relative flex flex-col items-center justify-center w-full h-[200px] sm:h-[300px] px-4 py-8 sm:px-6 sm:py-12"
                         style={{
-                          width: '326px', // 850 - 524 = 326px for card
-                          height: '100%',
-                          padding: '48px 24px',
                           display: 'flex',
                           flexDirection: 'column',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          gap: '16px'
+                          gap: '16px',
+                          borderRadius: '26px',
+                          border:"1px solid #f1f1f1",
+                          background: '#F8F8F8',
+                          minWidth: '280px',
+                          maxWidth: '320px',
+                          marginRight: '0'
                         }}
                       >
                         <div className="relative z-10">
@@ -151,22 +141,73 @@ export function EasySteps() {
                         {/* Description */}
                         <p className="relative z-10 text-sm" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '14px', color: '#666' }}>{step.description}</p>
                       </div>
+                    </div>
 
-                      {/* Image Section */}
+                    {/* Desktop: Merged Card + Image Container */}
+                    <div className="hidden lg:block">
                       <div 
-                        className="relative"
+                        className="relative flex w-full"
                         style={{
-                          width: '524px',
-                          height: '100%',
+                          width: '850px',
+                          height: '300px',
+                          borderRadius: '26px',
+                          border: '1px solid #f1f1f1',
+                          background: '#F8F8F8',
                           overflow: 'hidden'
                         }}
                       >
-                        <Image
-                          src="/assets/EasySteps.svg"
-                          alt="Property showcase"
-                          fill
-                          className="object-cover"
-                        />
+                        {/* Card Section */}
+                        <div 
+                          className="relative flex flex-col items-center justify-center"
+                          style={{
+                            width: '326px', // 850 - 524 = 326px for card
+                            height: '100%',
+                            padding: '48px 24px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            gap: '16px'
+                          }}
+                        >
+                          <div className="relative z-10">
+                            <span style={{ fontFamily: 'var(--font-fredoka)', fontSize: '18px', fontWeight: 400, color: '#000' }}>{step.number}</span>
+                          </div>
+                          
+                          {/* Icon */}
+                          <div className="relative z-10">
+                            <Image
+                              src={step.image}
+                              alt={step.title}
+                              width={78}
+                              height={78}
+                              className="object-contain"
+                            />
+                          </div>
+                          
+                          {/* Title */}
+                          <h3 className="relative z-10 text-lg font-bold" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '20px', fontWeight: 400, color: '#000' }}>{step.title}</h3>
+                          
+                          {/* Description */}
+                          <p className="relative z-10 text-sm" style={{ fontFamily: 'var(--font-fredoka)', fontSize: '14px', color: '#666' }}>{step.description}</p>
+                        </div>
+
+                        {/* Image Section */}
+                        <div 
+                          className="relative"
+                          style={{
+                            width: '524px',
+                            height: '100%',
+                            overflow: 'hidden'
+                          }}
+                        >
+                          <Image
+                            src="/assets/EasySteps.svg"
+                            alt="Property showcase"
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
                       </div>
                     </div>
                   </motion.div>
