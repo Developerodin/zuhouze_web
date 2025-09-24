@@ -42,123 +42,111 @@ export function FAQ() {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          {/* FAQs Button with Gradient Text */}
-          <div className="group relative mx-auto inline-flex items-center justify-center rounded-full px-4 py-1.5 bg-white shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] mb-6">
-            <span
-              className={cn(
-                "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
-              )}
-              style={{
-                WebkitMask:
-                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                WebkitMaskComposite: "destination-out",
-                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                maskComposite: "subtract",
-                WebkitClipPath: "padding-box",
-              }}
-            />
-            <div className="relative z-10">
-              <AnimatedGradientText
-                className="text-sm font-medium"
-                style={{
-                  fontFamily: 'Poppins',
-                  fontSize: '18px',
-                  fontWeight: 400,
-                  background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  lineHeight: 'normal'
-                }}
-              >
-                FAQs
-              </AnimatedGradientText>
-            </div>
-          </div>
-          
-          {/* Main Title */}
-          <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "36px", fontWeight: 400, color: '#000' }}>
-            Here are your Answers...
-          </h2>
-        </motion.div>
+    <section className="py-20 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 px-4 sm:px-6 lg:px-8">
+          <div 
+            className="w-full h-full bg-center bg-no-repeat rounded-2xl"
+            style={{
+              backgroundImage: 'url(/assets/FaqBg.svg)',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center'
+            }}
+          />
+        </div>
 
-        <motion.div
-          className="max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={faq.id}
-                className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <button
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-                  onClick={() => toggleItem(faq.id)}
-                >
-                  <span className="font-semibold text-gray-900">{faq.question}</span>
-                  <ChevronDown
-                    className={cn(
-                      "h-5 w-5 text-gray-500 transition-transform duration-200",
-                      openItem === faq.id && "rotate-180"
-                    )}
-                  />
-                </button>
-                <AnimatePresence>
-                  {openItem === faq.id && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-6 pb-4 text-gray-600">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-
+        {/* Main Content */}
+        <div className="relative z-10 flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+          {/* Left Side - Title */}
           <motion.div
-            className="text-center mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex-1"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-gray-600">
-              Still have questions? Email us at{" "}
-              <a
-                href="mailto:support@zuhouze.com"
-                className="text-blue-600 hover:text-blue-800 font-medium"
-              >
-                support@zuhouze.com
-              </a>
-            </p>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl" style={{ 
+              fontFamily: 'var(--font-fredoka)', 
+              fontWeight: 400, 
+              color: '#000',
+              lineHeight: '1.2'
+            }}>
+              Here are your
+            </h2>
+            <AnimatedGradientText
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium"
+              style={{
+                fontFamily: 'var(--font-fredoka)', 
+                fontWeight: 400,
+                background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                lineHeight: '1.2'
+              }}
+            >
+              Answers...
+            </AnimatedGradientText>
           </motion.div>
-        </motion.div>
+
+          {/* Right Side - FAQ Accordion */}
+          <motion.div
+            className="flex-1"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="space-y-3 sm:space-y-4 w-full">
+              {faqs.map((faq, index) => (
+                <motion.div
+                  key={faq.id}
+                  className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg overflow-hidden shadow-sm w-full"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <button
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-white/90 transition-colors"
+                    onClick={() => toggleItem(faq.id)}
+                  >
+                    <span className="font-semibold text-gray-900 text-sm sm:text-base pr-2">{faq.question}</span>
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 sm:h-5 sm:w-5 text-gray-500 transition-transform duration-200 flex-shrink-0",
+                        openItem === faq.id && "rotate-180"
+                      )}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {openItem === faq.id && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-gray-600 text-sm sm:text-base">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Email Section */}
+        
       </div>
+      
     </section>
+    
   );
 }
 
