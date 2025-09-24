@@ -168,7 +168,7 @@ export function Properties() {
 
         {/* Property Images */}
         <motion.div
-          className="flex gap-6 mb-12"
+          className="flex flex-col lg:flex-row gap-6 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -182,12 +182,11 @@ export function Properties() {
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <div className="relative" style={{ width: '709px', height: '576px' }}>
+            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px]">
               <Image
                 src="/assets/NewProperty.svg"
                 alt="Property 1"
-                width={709}
-                height={576}
+                fill
                 className="object-contain"
               />
             </div>
@@ -201,12 +200,11 @@ export function Properties() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="relative" style={{ width: '709px', height: '576px' }}>
+            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px]">
               <Image
                 src="/assets/NewProperty_2.svg"
                 alt="Property 2"
-                width={709}
-                height={576}
+                fill
                 className="object-contain"
               />
             </div>
