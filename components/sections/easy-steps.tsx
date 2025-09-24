@@ -36,14 +36,24 @@ const steps = [
 export function EasySteps() {
   return (
     <section className="relative py-20 bg-white overflow-hidden">
-      {/* Retro Grid Background */}
-      <RetroGrid 
-        className="absolute inset-0 z-0 w-full h-full"
-        angle={65}
-        cellSize={60}
-        opacity={0.3}
-        darkLineColor="#EDEDED"
-      />
+      {/* Retro Grid Background - Starting from second card */}
+      <div 
+        className="absolute z-0 w-full"
+        style={{
+          top: '200px',
+          left: '0',
+          right: '0',
+          bottom: '0'
+        }}
+      >
+        <RetroGrid 
+          className="w-full h-full"
+          angle={65}
+          cellSize={20}
+          opacity={0.3}
+          darkLineColor="#EDEDED"
+        />
+      </div>
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
@@ -73,7 +83,7 @@ export function EasySteps() {
         </motion.div>
 
         {/* Main Content Layout */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 ">
           {/* Left Side Cards */}
           <div className="flex flex-col gap-6 w-full lg:w-auto">
             {/* Top Left Card - Connect & Visit */}
