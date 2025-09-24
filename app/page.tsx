@@ -1,5 +1,5 @@
 import { Header } from "@/components/sections/header";
-import { Hero } from "@/components/sections/hero";
+import { HeroVideo } from "@/components/sections/hero-video";
 import { EasySteps } from "@/components/sections/easy-steps";
 import { Properties } from "@/components/sections/properties";
 import { Community } from "@/components/sections/community";
@@ -10,11 +10,11 @@ import { GridPattern } from "@/components/ui/grid-pattern";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center">
+    <div className="min-h-screen bg-white">
       <Header />
       {/* Add top padding to account for fixed header */}
       <div className="w-full">
-        <Hero />
+        <HeroVideo />
         <EasySteps />
         <Properties />
         <Community />
