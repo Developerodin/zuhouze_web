@@ -36,7 +36,9 @@ export function HeroVideo() {
               maxWidth: 'calc(100% - 60px)',
               borderRadius: '32px',
               overflow: 'hidden',
-              margin: '30px auto'
+              margin: '30px auto',
+              height: '100vh',
+              maxHeight: '700px'
             }}
           >
             <video
