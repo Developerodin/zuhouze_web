@@ -11,8 +11,8 @@ export function HeroVideo() {
   const { scrollYProgress } = useScroll();
 
   // Transform values based on scroll
-  const titleScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.7]);
-  const titleY = useTransform(scrollYProgress, [0, 0.3], [0, -50]);
+  const titleScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
+  const titleY = useTransform(scrollYProgress, [0, 0.3], [0, 0]); // Keep title in same position
   const subtitleOpacity = useTransform(scrollYProgress, [0, 0.1, 0.3], [0, 0, 1]);
   const buttonOpacity = useTransform(scrollYProgress, [0, 0.15, 0.3], [0, 0, 1]);
   const buttonY = useTransform(scrollYProgress, [0, 0.3], [20, 0]);
@@ -73,8 +73,7 @@ export function HeroVideo() {
                     fontStyle: 'normal',
                     fontWeight: 400,
                     lineHeight: 'normal',
-                    scale: titleScale,
-                    y: titleY,
+                    transform: `scale(${titleScale})`,
                   }}
                 >
                   <motion.span
