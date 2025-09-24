@@ -8,6 +8,12 @@ import Image from "next/image";
 
 const steps = [
   {
+    icon: "/assets/Connect.png",
+    title: "Connect & Visit",
+    description: "Chat or schedule visits directly.",
+    position: "left"
+  },
+  {
     icon: "/assets/Swipe.png",
     title: "Swipe & Watch",
     description: "Scroll property videos like reels.",
@@ -17,6 +23,12 @@ const steps = [
     icon: "/assets/Shortlist.png", 
     title: "Shortlist & Share",
     description: "Save or send to friends instantly.",
+    position: "right"
+  },
+  {
+    icon: "/assets/Connect.png", // You may need to add a specific icon for Smart Matchmaking
+    title: "Smart Matchmaking",
+    description: "AI Finds Your Perfect Home",
     position: "right"
   }
 ];
@@ -62,44 +74,95 @@ export function EasySteps() {
 
         {/* Main Content Layout */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
-          {/* Left Card */}
-          <motion.div
-            className="w-full lg:w-auto"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div 
-              className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg"
-              style={{ minWidth: '280px', maxWidth: '320px' }}
+          {/* Left Side Cards */}
+          <div className="flex flex-col gap-6 w-full lg:w-auto">
+            {/* Top Left Card - Connect & Visit */}
+            <motion.div
+              className="w-full lg:w-auto"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
             >
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center">
-                  <Image
-                    src={steps[0].icon}
-                    alt={steps[0].title}
-                    width={32}
-                    height={32}
-                    className="object-contain"
-                  />
+              <div 
+                className="rounded-full p-6 shadow-sm"
+                style={{ 
+                  minWidth: '350px', 
+                  maxWidth: '380px',
+                  
+                  background: 'rgba(10, 18, 117, 0.04)',
+                  backdropFilter: 'blur(8.350000381469727px)'
+                }}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src={steps[0].icon}
+                      alt={steps[0].title}
+                      width={50}
+                      height={50}
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <h3 className="text-lg text-black" style={{ fontFamily: 'var(--font-fredoka)' }}>
+                      {steps[0].title}
+                    </h3>
+                    <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-fredoka)' }}>
+                      {steps[0].description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold" style={{ fontFamily: 'var(--font-fredoka)' }}>
-                  {steps[0].title}
-                </h3>
-                <p className="text-gray-600" style={{ fontFamily: 'var(--font-fredoka)' }}>
-                  {steps[0].description}
-                </p>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Bottom Left Card - Swipe & Watch */}
+            <motion.div
+              className="w-full lg:w-auto"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div 
+                className="rounded-full p-6 shadow-sm"
+                style={{ 
+                  minWidth: '350px', 
+                  maxWidth: '380px',
+                 
+                  background: 'rgba(10, 18, 117, 0.04)',
+                  backdropFilter: 'blur(8.350000381469727px)'
+                }}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src={steps[1].icon}
+                      alt={steps[1].title}
+                      width={50}
+                      height={50}
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <h3 className="text-lg text-black" style={{ fontFamily: 'var(--font-fredoka)' }}>
+                      {steps[1].title}
+                    </h3>
+                    <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-fredoka)' }}>
+                      {steps[1].description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
           {/* Center Phone Image */}
           <motion.div
             className="relative z-10"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
             <div className="relative w-64 h-96 lg:w-80 lg:h-[500px]">
@@ -112,37 +175,88 @@ export function EasySteps() {
             </div>
           </motion.div>
 
-          {/* Right Card */}
-          <motion.div
-            className="w-full lg:w-auto"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div 
-              className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg"
-              style={{ minWidth: '280px', maxWidth: '320px' }}
+          {/* Right Side Cards */}
+          <div className="flex flex-col gap-6 w-full lg:w-auto">
+            {/* Top Right Card - Shortlist & Share */}
+            <motion.div
+              className="w-full lg:w-auto"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
             >
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-purple-500 flex items-center justify-center">
-                  <Image
-                    src={steps[1].icon}
-                    alt={steps[1].title}
-                    width={32}
-                    height={32}
-                    className="object-contain"
-                  />
+              <div 
+                className="rounded-full p-6 shadow-sm"
+                style={{ 
+                  minWidth: '350px', 
+                  maxWidth: '380px',
+                  
+                  background: 'rgba(10, 18, 117, 0.04)',
+                  backdropFilter: 'blur(8.350000381469727px)'
+                }}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src={steps[2].icon}
+                      alt={steps[2].title}
+                      width={50}
+                      height={50}
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <h3 className="text-lg text-black" style={{ fontFamily: 'var(--font-fredoka)' }}>
+                      {steps[2].title}
+                    </h3>
+                    <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-fredoka)' }}>
+                      {steps[2].description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold" style={{ fontFamily: 'var(--font-fredoka)' }}>
-                  {steps[1].title}
-                </h3>
-                <p className="text-gray-600" style={{ fontFamily: 'var(--font-fredoka)' }}>
-                  {steps[1].description}
-                </p>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Bottom Right Card - Smart Matchmaking */}
+            <motion.div
+              className="w-full lg:w-auto"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div 
+                className="rounded-full p-6 shadow-sm"
+                style={{ 
+                  minWidth: '350px', 
+                  maxWidth: '380px',
+                  
+                  background: 'rgba(10, 18, 117, 0.04)',
+                  backdropFilter: 'blur(8.350000381469727px)'
+                }}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src={steps[3].icon}
+                      alt={steps[3].title}
+                      width={50}
+                      height={50}
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <h3 className="text-lg text-black" style={{ fontFamily: 'var(--font-fredoka)' }}>
+                      {steps[3].title}
+                    </h3>
+                    <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-fredoka)' }}>
+                      {steps[3].description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
