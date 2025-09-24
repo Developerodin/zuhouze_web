@@ -42,22 +42,23 @@ export function FAQ() {
   };
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0 px-4 sm:px-6 lg:px-8">
-          <div 
-            className="w-full h-full bg-center bg-no-repeat rounded-2xl"
-            style={{
-              backgroundImage: 'url(/assets/FaqBg.svg)',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center'
-            }}
-          />
-        </div>
+    <>
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0 px-4 sm:px-6 lg:px-8">
+            <div 
+              className="w-full h-full bg-center bg-no-repeat rounded-2xl"
+              style={{
+                backgroundImage: 'url(/assets/FaqBg.svg)',
+                backgroundSize: 'contain',
+                backgroundPosition: 'center'
+              }}
+            />
+          </div>
 
-        {/* Main Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+          {/* Main Content */}
+          <div className="relative z-10 flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
           {/* Left Side - Title */}
           <motion.div
             className="flex-1"
@@ -102,14 +103,14 @@ export function FAQ() {
               {faqs.map((faq, index) => (
                 <motion.div
                   key={faq.id}
-                  className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg overflow-hidden shadow-sm w-full"
+                  className="bg-white/40 backdrop-blur-md border border-white/30 rounded-lg overflow-hidden shadow-sm w-full"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
                   <button
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-white/90 transition-colors"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-white/60 transition-colors"
                     onClick={() => toggleItem(faq.id)}
                   >
                     <span className="font-semibold text-gray-900 text-sm sm:text-base pr-2">{faq.question}</span>
@@ -139,13 +140,33 @@ export function FAQ() {
               ))}
             </div>
           </motion.div>
+          </div>
         </div>
+      </section>
 
-        {/* Email Section */}
-        
-      </div>
-      
-    </section>
+      {/* Email Section - Separate section */}
+      <section className="py-8 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-gray-600 text-lg">
+              Still have questions? Email us at{" "}
+              <a
+                href="mailto:support@zuhouze.com"
+                className="text-blue-600 hover:text-blue-800 font-medium underline"
+              >
+                support@zuhouze.com
+              </a>
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </>
     
   );
 }
