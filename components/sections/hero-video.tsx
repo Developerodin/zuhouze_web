@@ -34,7 +34,7 @@ export function HeroVideo() {
             style={{
               width: '100%',
               maxWidth: 'calc(100% - 60px)',
-              borderRadius: '32px',
+              borderRadius: '12px',
               overflow: 'hidden',
               margin: '30px auto',
               height: '100vh',
@@ -62,15 +62,14 @@ export function HeroVideo() {
 
             {/* Text Overlay on Video */}
             <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="text-center px-4">
+              <div className="text-center px-4" style={{ marginTop: '350px' }}>
                 {/* Main Title */}
                 <motion.h1
                   className="font-bold leading-tight"
                   style={{
                     color: '#FFF',
                     textAlign: 'center',
-                    fontFamily: 'Poppins',
-                    fontSize: 160,
+                    fontSize: 165,
                     fontStyle: 'normal',
                     fontWeight: 400,
                     lineHeight: 'normal',
