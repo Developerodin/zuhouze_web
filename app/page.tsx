@@ -1,6 +1,7 @@
 import { Header } from "@/components/sections/header";
 import { HeroVideo } from "@/components/sections/hero-video";
 import { EasySteps } from "@/components/sections/easy-steps";
+import { GlobeSection } from "@/components/sections/globe";
 import { Properties } from "@/components/sections/properties";
 import { Community } from "@/components/sections/community";
 import { FAQ } from "@/components/sections/faq";
@@ -16,6 +17,7 @@ export default function Home() {
       <div className="w-full">
         <HeroVideo />
         <EasySteps />
+        <GlobeSection />
         <Properties />
         <Community />
         <FAQ />
