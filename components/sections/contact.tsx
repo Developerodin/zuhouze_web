@@ -278,7 +278,7 @@ export function Contact() {
 
             <div className="flex justify-center mt-8">
               <ShimmerButton
-                className="px-6 py-3 text-base font-semibold bg-black text-white hover:bg-black/90 hover:text-black"
+                className="px-12 py-3 w-48 text-base font-semibold bg-black text-white hover:bg-black/90 hover:text-black"
                 borderRadius="10px"
                 onClick={() => handleSubmit(new Event('submit') as any)}
               >

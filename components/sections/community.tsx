@@ -129,26 +129,39 @@ export function Community() {
 
         {/* Waitlist Form */}
         <motion.div
-          className="mt-12 text-center"
+          className="mt-12 flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="max-w-md mx-auto">
-            <div className="flex space-x-2">
-              <input
-                type="email"
-                placeholder="Enter your email..."
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <ShimmerButton
-                className="px-6 py-3 text-base font-semibold bg-black text-white hover:bg-black/90 hover:text-black"
-                borderRadius="10px"
-                onClick={() => {}}
-              >
-                Join the waitlist
-              </ShimmerButton>
+          <div className="max-w-2xl mx-auto">
+            <div className="border border-[##E5E5E5] rounded-lg p-1 flex items-center">
+              {/* Waitlist Label */}
+              <div className="px-6 py-4 flex items-center">
+                <span className="text-gray-800 font-medium text-sm">Waitlist</span>
+                <div className="w-px h-6 bg-gray-300 mx-4"></div>
+              </div>
+              
+              {/* Email Input */}
+              <div className="flex-1 px-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email..."
+                  className="w-full px-4 py-3 bg-gray-50 rounded-lg border-0 focus:outline-none focus:ring-0 text-gray-600 placeholder-gray-400"
+                />
+              </div>
+              
+              {/* Join Button */}
+              <div className="px-2">
+                <ShimmerButton
+                  className="px-6 py-3 text-sm font-semibold bg-black text-white hover:bg-black/90 hover:text-black rounded-lg"
+                  borderRadius="8px"
+                  onClick={() => {}}
+                >
+                  Join the waitlist
+                </ShimmerButton>
+              </div>
             </div>
           </div>
         </motion.div>
