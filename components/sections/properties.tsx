@@ -22,7 +22,7 @@ export function Properties() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <AnimatedGradientText
               className="text-sm font-medium"
               style={{
@@ -38,9 +38,12 @@ export function Properties() {
             >
               Recent AI Driven Suggestions
             </AnimatedGradientText>
-            {/* <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-              <span className="text-white text-xs">✨</span>
-            </div> */}
+            <Image
+              src="/assets/Star.png"
+              alt="Star"
+              width={46}
+              height={46}
+            />
           </div>
         </motion.div>
 

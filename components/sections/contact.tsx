@@ -11,6 +11,7 @@ import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { motion } from "framer-motion";
 import { useState, forwardRef, useRef } from "react";
 import { Users, Mail, Phone, MapPin, MessageCircle, Send, Heart, Star, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -86,12 +87,18 @@ export function Contact() {
                 WebkitClipPath: "padding-box",
               }}
             /> */}
-            <div className="relative z-10">
+            <div className="relative z-10 flex items-center gap-1">
+              <Image
+                src="/assets/Phone.png"
+                alt="Phone"
+                width={32}
+                height={32}
+              />
               <AnimatedGradientText
                 className="text-sm font-medium"
                 style={{
                   fontFamily: 'var(--font-fredoka)', 
-                  fontSize: '30px',
+                  fontSize: '34px',
                   fontWeight: 400,
                   background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
                   WebkitBackgroundClip: 'text',
@@ -287,38 +294,47 @@ export function Contact() {
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex justify-center items-center gap-2 mt-12">
+            <div className="flex justify-center items-center gap-6 mt-12">
               {/* Facebook */}
               <a 
                 href="#" 
-                className="w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-500 flex items-center justify-center transition-colors duration-300"
+                className="hover:opacity-70 transition-opacity duration-300"
                 aria-label="Facebook"
               >
-                <svg className="w-5 h-5 text-gray-600 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
+                <Image
+                  src="/assets/Facebook.png"
+                  alt="Facebook"
+                  width={30}
+                  height={30}
+                />
               </a>
 
               {/* Instagram */}
               <a 
                 href="#" 
-                className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 flex items-center justify-center transition-colors duration-300"
+                className="hover:opacity-70 transition-opacity duration-300"
                 aria-label="Instagram"
               >
-                <svg className="w-5 h-5 text-gray-600 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.014 5.367 18.647.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.281c-.49 0-.928-.175-1.297-.49-.368-.315-.49-.753-.49-1.243s.122-.928.49-1.243c.369-.315.807-.49 1.297-.49s.928.175 1.297.49c.368.315.49.753.49 1.243s-.122.928-.49 1.243c-.369.315-.807.49-1.297.49z"/>
-                </svg>
+                <Image
+                  src="/assets/Insta.png"
+                  alt="Instagram"
+                  width={30}
+                  height={30}
+                />
               </a>
 
               {/* YouTube */}
               <a 
                 href="#" 
-                className="w-10 h-10 rounded-full bg-gray-100 hover:bg-red-500 flex items-center justify-center transition-colors duration-300"
+                className="hover:opacity-70 transition-opacity duration-300"
                 aria-label="YouTube"
               >
-                <svg className="w-5 h-5 text-gray-600 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
+                <Image
+                  src="/assets/Youtube.png"
+                  alt="YouTube"
+                  width={37}
+                  height={26}
+                />
               </a>
             </div>
           </form>
