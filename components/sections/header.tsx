@@ -7,7 +7,7 @@ import Image from "next/image";
 export function Header() {
   return (
     <header className="fixed top-4 left-0 right-0 z-50 w-full">
-      <div className="mx-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full shadow-lg">
+      <div className="mx-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full ">
         <div className="flex items-center justify-between py-3 px-10">
           {/* Logo Section */}
           <div className="flex items-center" style={{ width: "500px" }}>
@@ -78,7 +78,7 @@ export function Header() {
             <button 
               className="px-6 py-3 border transition-all duration-200"
               style={{
-                borderColor: "#E5E5E5",
+                borderColor: "rgba(211, 211, 211, 0.31)",
                 fontFamily: "Poppins Medium",
                 fontSize: "18px",
                 fontWeight: 500,
