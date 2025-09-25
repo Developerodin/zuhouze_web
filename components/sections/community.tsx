@@ -85,7 +85,7 @@ export function Community() {
                 className="text-sm font-medium"
                 style={{
                   fontFamily: 'var(--font-fredoka)', 
-                  fontSize: '60px',
+                  fontSize: 'clamp(24px, 6vw, 60px)',
                   fontWeight: 400,
                   background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
                   WebkitBackgroundClip: 'text',
@@ -100,7 +100,7 @@ export function Community() {
           </div>
           
           {/* Main Title */}
-          <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "60px", fontWeight: 400, color: '#000' }}>
+          <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "clamp(24px, 6vw, 60px)", fontWeight: 400, color: '#000' }}>
             Homes & People
           </h2>
         </motion.div>
@@ -129,14 +129,15 @@ export function Community() {
 
         {/* Waitlist Form */}
         <motion.div
-          className="mt-12 flex justify-center"
+          className="mt-12 flex justify-center px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="max-w-2xl mx-auto">
-            <div className="border border-[##E5E5E5] rounded-lg p-1 flex items-center">
+          <div className="max-w-2xl mx-auto w-full">
+            {/* Desktop Layout */}
+            <div className="hidden md:flex border border-[#E5E5E5] rounded-lg p-1 items-center">
               {/* Waitlist Label */}
               <div className="px-6 py-4 flex items-center">
                 <span className="text-gray-800 font-medium text-sm">Waitlist</span>
@@ -155,7 +156,30 @@ export function Community() {
               {/* Join Button */}
               <div className="px-2">
                 <ShimmerButton
-                  className="px-6 py-3 text-sm font-semibold bg-black text-white hover:bg-black/90 hover:text-black rounded-lg"
+                  className="px-6 py-3 text-sm font-semibold bg-black text-white hover:bg-black/90"
+                  borderRadius="8px"
+                  onClick={() => {}}
+                >
+                  Join the waitlist
+                </ShimmerButton>
+              </div>
+            </div>
+
+            {/* Mobile Layout */}
+            <div className="block md:hidden space-y-3">
+              <div className="text-center mb-3">
+                <span className="text-gray-800 font-medium text-sm">Join the Waitlist</span>
+              </div>
+              
+              <div className="space-y-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email..."
+                  className="w-full px-4 py-3 bg-gray-50 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-600 placeholder-gray-400 text-base"
+                />
+                
+                <ShimmerButton
+                  className="w-full px-6 py-3 text-sm font-semibold bg-black text-white hover:bg-black/90 hover:text-black rounded-lg"
                   borderRadius="8px"
                   onClick={() => {}}
                 >

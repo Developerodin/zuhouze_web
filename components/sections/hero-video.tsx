@@ -50,7 +50,7 @@ export function HeroVideo() {
   return (
     <section className="relative w-full overflow-hidden pt-16 pb-8">
       {/* Video Container */}
-      <div className="w-full px-2">
+      <div className="w-full px-2 sm:px-4">
         <div className="relative">
           {/* Video Background */}
           <div 
@@ -91,9 +91,9 @@ export function HeroVideo() {
                   marginTop: containerMarginTop,
                 }}
               >
-                {/* Small Title - Shows on scroll */}
+                {/* Small Title - Shows on scroll (Desktop only) */}
                 <motion.h1
-                  className="font-bold leading-tight"
+                  className="font-bold leading-tight hidden md:block"
                   style={{
                     fontFamily: "var(--font-poppins)",
                     color: '#FFF',
@@ -125,14 +125,12 @@ export function HeroVideo() {
                   </motion.span>
                 </motion.h1>
 
-                {/* Large Title - Shows initially, hides on scroll */}
+                {/* Large Title - Shows initially, hides on scroll (Desktop only) */}
                 {showLargeTitle && (
                   <motion.h1
-                    className=" leading-tight"
+                    className="leading-tight hidden md:block"
                     style={{
-                      
                       color: '#FFF',
-                      
                       fontSize: 160,
                       fontStyle: 'normal',
                       fontWeight: 400,
@@ -160,9 +158,41 @@ export function HeroVideo() {
                   </motion.h1>
                 )}
 
-                {/* Subtitle - Appears on scroll */}
+                {/* Mobile Large Title - Always visible on mobile */}
+                <motion.h1
+                  className="leading-tight block md:hidden"
+                  style={{
+                    color: '#FFF',
+                    textAlign: 'center',
+                    fontSize: 'clamp(32px, 8vw, 48px)',
+                    fontStyle: 'normal',
+                    fontWeight: 400,
+                    lineHeight: 'normal',
+                    fontFamily: "var(--font-poppins)",
+                  }}
+                >
+                  <motion.span
+                    className="block"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  >
+                    Bringing the Global
+                  </motion.span>
+                  
+                  <motion.span
+                    className="block"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.8 }}
+                  >
+                    Real Estate Closer.
+                  </motion.span>
+                </motion.h1>
+
+                {/* Subtitle - Appears on scroll (Desktop only) */}
                 <motion.p
-                  className="text-white/90 max-w-3xl mx-auto mt-2"
+                  className="text-white/90 max-w-3xl mx-auto mt-2 hidden md:block"
                   style={{
                     fontFamily: "var(--font-poppins)",
                     fontSize: "18px",
@@ -176,9 +206,9 @@ export function HeroVideo() {
                   smart recommendations, and instant connections - all in one place.
                 </motion.p>
 
-                {/* Custom Button - Appears on scroll */}
+                {/* Custom Button - Appears on scroll (Desktop only) */}
                 <motion.div
-                  className="mt-8 sm:mt-12 flex justify-center"
+                  className="mt-8 sm:mt-12 flex justify-center hidden md:flex"
                   style={{
                     opacity: buttonOpacity,
                     y: buttonY,

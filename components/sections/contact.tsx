@@ -98,7 +98,7 @@ export function Contact() {
                 className="text-sm font-medium"
                 style={{
                   fontFamily: 'var(--font-fredoka)', 
-                  fontSize: '34px',
+                  fontSize: 'clamp(24px, 6vw, 34px)',
                   fontWeight: 400,
                   background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
                   WebkitBackgroundClip: 'text',
@@ -113,7 +113,7 @@ export function Contact() {
           </div>
           
           {/* Main Title */}
-          <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "60px", fontWeight: 400, color: '#000' }}>
+          <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "clamp(32px, 8vw, 60px)", fontWeight: 400, color: '#000' }}>
             Let's Connect
           </h2>
         </motion.div>

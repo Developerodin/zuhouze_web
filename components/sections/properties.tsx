@@ -13,7 +13,7 @@ export function Properties() {
 
   return (
     <section id="properties" className="py-20 bg-white">
-      <div className="w-full mx-auto" style={{ paddingLeft: '40px', paddingRight: '40px' }}>
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-10">
         {/* Recent AI Driven Suggestions */}
         <motion.div
           className="mb-4"
@@ -27,7 +27,7 @@ export function Properties() {
               className="text-sm font-medium"
               style={{
                 fontFamily: 'var(--font-fredoka)', 
-                fontSize: '24px',
+                fontSize: 'clamp(18px, 4vw, 24px)',
                 fontWeight: 400,
                 background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
                 WebkitBackgroundClip: 'text',
@@ -41,8 +41,9 @@ export function Properties() {
             <Image
               src="/assets/Star.png"
               alt="Star"
-              width={46}
-              height={46}
+              width={36}
+              height={36}
+              className="sm:w-[46px] sm:h-[46px]"
             />
           </div>
         </motion.div>
@@ -59,7 +60,7 @@ export function Properties() {
           <div>
             <h2 style={{ 
               fontFamily: 'var(--font-fredoka)', 
-              fontSize: "60px", 
+              fontSize: "clamp(32px, 8vw, 60px)", 
               fontWeight: 400, 
               color: '#000',
               lineHeight: '1.2'
@@ -73,7 +74,7 @@ export function Properties() {
             <div className="flex items-baseline gap-2">
               <span style={{ 
                 fontFamily: 'var(--font-fredoka)', 
-                fontSize: "48px", 
+                fontSize: "clamp(32px, 6vw, 48px)", 
                 fontWeight: 400, 
                 color: '#000'
               }}>
@@ -81,7 +82,7 @@ export function Properties() {
               </span>
               <span style={{ 
                 fontFamily: 'var(--font-fredoka)', 
-                fontSize: "18px", 
+                fontSize: "clamp(14px, 3vw, 18px)", 
                 fontWeight: 400, 
                 color: '#000',
                 alignSelf: 'flex-end',
@@ -95,24 +96,23 @@ export function Properties() {
 
         {/* Filter Section */}
         <motion.div
-          className="flex items-center justify-between mb-10"
+          className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4 md:gap-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
           {/* Left Side - Price Filter and City Buttons */}
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
             {/* Price Filter */}
             <button
-              className="flex items-center gap-2 bg-white hover:bg-gray-50 transition-colors"
-              style={{ 
+              className="flex items-center gap-2 bg-white hover:bg-gray-50 transition-colors mb-3 sm:mb-0 sm:mr-5"
+                style={{ 
                 fontFamily: 'Poppins',
                 borderRadius: '10px',
                 border: '1px solid #ECECEC',
                 padding: '11px 32px',
-                color: '#000',
-                marginRight: '20px'
+                color: '#000'
               }}
             >
               <span>Price</span>
@@ -122,7 +122,7 @@ export function Properties() {
             </button>
 
             {/* City Buttons */}
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               {locations.map((location) => (
                 <button
                   key={location}
@@ -133,10 +133,11 @@ export function Properties() {
                     lineHeight: 'normal',
                     borderRadius: '32px',
                     border: '1px solid #ECECEC',
-                    padding: '14px 40px',
+                    padding: '12px 24px',
                     color: activeLocation === location ? '#fff' : '#000',
                     backgroundColor: activeLocation === location ? '#000' : 'rgba(234, 234, 238, 0.31)'
                   }}
+                  className="sm:px-10 sm:py-3.5"
                 >
                   {location}
                 </button>
@@ -146,7 +147,7 @@ export function Properties() {
 
           {/* Right Side - View Properties Button */}
           <button
-            className="px-6 py-3 text-base font-semibold bg-black text-white hover:bg-black/90 rounded-lg"
+            className="px-6 py-3 text-base font-semibold bg-black text-white hover:bg-black/90 rounded-lg w-full md:w-auto"
             style={{ fontFamily: 'Poppins' }}
           >
             View Properties
@@ -185,7 +186,7 @@ export function Properties() {
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px]">
+            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
               <Image
                 src="/assets/NewProperty.svg"
                 alt="Property 1"
@@ -203,7 +204,7 @@ export function Properties() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px]">
+            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
               <Image
                 src="/assets/NewProperty_2.svg"
                 alt="Property 2"

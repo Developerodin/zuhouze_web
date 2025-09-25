@@ -46,7 +46,7 @@ export function FAQ() {
       <section id="faq" className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Background Image */}
-          <div className="absolute inset-0 z-0 px-4 sm:px-6 lg:px-8">
+          <div className="absolute inset-0 z-0 px-4 sm:px-6 lg:px-8 hidden md:block">
             <div 
               className="w-full h-full bg-center bg-no-repeat rounded-2xl"
               style={{
@@ -67,7 +67,7 @@ export function FAQ() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl" style={{ 
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl" style={{ 
               fontFamily: 'var(--font-fredoka)', 
               fontWeight: 400, 
               color: '#000',
@@ -76,7 +76,7 @@ export function FAQ() {
               Here are your
             </h2>
             <AnimatedGradientText
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-medium"
               style={{
                 fontFamily: 'var(--font-fredoka)', 
                 fontWeight: 400,
@@ -113,7 +113,9 @@ export function FAQ() {
                     className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-white/60 transition-colors"
                     onClick={() => toggleItem(faq.id)}
                   >
-                    <span className="font-semibold text-gray-900 text-sm sm:text-base pr-2">{faq.question}</span>
+                    <span className="font-semibold text-gray-900 text-sm sm:text-base pr-2">
+                      {faq.question}
+                    </span>
                     <ChevronDown
                       className={cn(
                         "h-4 w-4 sm:h-5 sm:w-5 text-gray-500 transition-transform duration-200 flex-shrink-0",
@@ -154,11 +156,11 @@ export function FAQ() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <p className="text-black text-lg">
+            <p className="text-black text-base sm:text-lg px-4" style={{ fontFamily: 'var(--font-fredoka)' }}>
               Still have questions? Email us at{" "}
               <a
                 href="mailto:support@zuhouze.com"
-                className="text-black hover:text-blue-800  underline"
+                className="text-black hover:text-blue-800 underline"
               >
                 support@zuhouze.com
               </a>

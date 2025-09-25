@@ -65,7 +65,7 @@ export function EasySteps() {
           viewport={{ once: true }}
         >
           {/* Main Title with Animated Zuhaush */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl mb-6" style={{ fontFamily: 'var(--font-fredoka)' }}>
+          <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl mb-6 px-4" style={{ fontFamily: 'var(--font-fredoka)' }}>
             <AnimatedGradientText
               style={{
                 background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
@@ -83,7 +83,7 @@ export function EasySteps() {
         </motion.div>
 
         {/* Main Content Layout */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 ">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 px-4 sm:px-6 lg:px-0">
           {/* Left Side Cards */}
           <div className="flex flex-col gap-6 w-full lg:w-auto">
             {/* Top Left Card - Connect & Visit */}
@@ -95,9 +95,9 @@ export function EasySteps() {
               viewport={{ once: true }}
             >
               <div 
-                className="rounded-full p-6 shadow-sm"
+                className="rounded-full p-4 sm:p-6 shadow-sm w-full"
                 style={{ 
-                  minWidth: '350px', 
+                  minWidth: '280px', 
                   maxWidth: '380px',
                   
                   background: 'rgba(10, 18, 117, 0.04)',
@@ -135,9 +135,9 @@ export function EasySteps() {
               viewport={{ once: true }}
             >
               <div 
-                className="rounded-full p-6 shadow-sm"
+                className="rounded-full p-4 sm:p-6 shadow-sm w-full"
                 style={{ 
-                  minWidth: '350px', 
+                  minWidth: '280px', 
                   maxWidth: '380px',
                  
                   background: 'rgba(10, 18, 117, 0.04)',
@@ -196,9 +196,9 @@ export function EasySteps() {
               viewport={{ once: true }}
             >
               <div 
-                className="rounded-full p-6 shadow-sm"
+                className="rounded-full p-4 sm:p-6 shadow-sm w-full"
                 style={{ 
-                  minWidth: '350px', 
+                  minWidth: '280px', 
                   maxWidth: '380px',
                   
                   background: 'rgba(10, 18, 117, 0.04)',
@@ -236,9 +236,9 @@ export function EasySteps() {
               viewport={{ once: true }}
             >
               <div 
-                className="rounded-full p-6 shadow-sm"
+                className="rounded-full p-4 sm:p-6 shadow-sm w-full"
                 style={{ 
-                  minWidth: '350px', 
+                  minWidth: '280px', 
                   maxWidth: '380px',
                   
                   background: 'rgba(10, 18, 117, 0.04)',
