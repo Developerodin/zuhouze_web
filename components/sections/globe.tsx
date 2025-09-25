@@ -6,7 +6,7 @@ import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 
 export function GlobeSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden" style={{ background: '#FCFCFC',marginLeft:"40px",marginRight:"40px",borderRadius:"26px" }}>
+    <section className="relative h-[500px] md:min-h-screen overflow-hidden px-4 sm:px-6 lg:px-10" style={{ background: '#FCFCFC', borderRadius:"26px" }}>
       <div >
         {/* Gradient Background - Desktop only */}
         <div 
@@ -70,7 +70,7 @@ export function GlobeSection() {
 
         {/* Mobile Layout - Centered */}
         <motion.div
-          className="absolute top-20 left-0 right-0 text-center z-20 block md:hidden px-8"
+          className="absolute top-12 left-0 right-0 text-center z-20 block md:hidden px-4"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -97,7 +97,8 @@ export function GlobeSection() {
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 fontSize: 'clamp(32px, 8vw, 48px)',
-                display: 'block'
+                display: 'block',
+                paddingTop: '10px'
               }}
             >
               the Globe.
@@ -135,15 +136,15 @@ export function GlobeSection() {
 
         {/* Globe Section - Mobile Centered */}
         <motion.div
-          className="absolute top-[200px] left-0 right-0 z-30 block md:hidden flex justify-center items-center"
+          className="absolute top-[180px] left-0 right-0 z-30 md:hidden flex justify-center items-center"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
           viewport={{ once: true }}
         >
           {/* Globe Container - Mobile centered */}
-          <div className="relative flex justify-center items-center w-full h-[400px]" >
-            <div className="relative w-[350px] h-[350px]" >
+          <div className="relative flex justify-center items-center w-full h-[250px]" >
+            <div className="relative w-[250px] h-[250px]" >
               <Globe className="h-full w-full" />
             </div>
           </div>

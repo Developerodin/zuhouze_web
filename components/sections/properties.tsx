@@ -12,7 +12,7 @@ export function Properties() {
   const [activeLocation, setActiveLocation] = useState("Dubai");
 
   return (
-    <section id="properties" className="py-20 bg-white">
+    <section id="properties" className="py-8 md:py-20 bg-white">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-10">
         {/* Recent AI Driven Suggestions */}
         <motion.div
