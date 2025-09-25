@@ -6,9 +6,9 @@ import Image from "next/image";
 
 export function Header() {
   return (
-    <header className="fixed top-4 left-0 right-0 z-50 w-full">
-      <div className="mx-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full ">
-        <div className="flex items-center justify-between py-3 px-10">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full">
+      <div className="backdrop-blur-md">
+        <div className="flex items-center justify-between py-5 px-10">
           {/* Logo Section */}
           <div className="flex items-center" style={{ width: "500px" }}>
             <Image
@@ -27,7 +27,7 @@ export function Header() {
               href="#about"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
-                fontFamily: "Poppins Medium",
+                fontFamily: "var(--font-poppins)",
                 fontSize: "18px",
                 fontWeight: 500,
                 lineHeight: "normal"
@@ -39,7 +39,7 @@ export function Header() {
               href="#properties"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
-                fontFamily: "Poppins Medium",
+                fontFamily: "var(--font-poppins)",
                 fontSize: "18px",
                 fontWeight: 500,
                 lineHeight: "normal"
@@ -51,7 +51,7 @@ export function Header() {
               href="#faq"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
-                fontFamily: "Poppins Medium",
+                fontFamily: "var(--font-poppins)",
                 fontSize: "18px",
                 fontWeight: 500,
                 lineHeight: "normal"
@@ -63,7 +63,7 @@ export function Header() {
               href="#contact"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
-                fontFamily: "Poppins Medium",
+                fontFamily: "var(--font-poppins)",
                 fontSize: "18px",
                 fontWeight: 500,
                 lineHeight: "normal"
@@ -79,13 +79,13 @@ export function Header() {
               className="px-6 py-3 border transition-all duration-200"
               style={{
                 borderColor: "rgba(211, 211, 211, 0.31)",
-                fontFamily: "Poppins Medium",
+                fontFamily: "var(--font-poppins)",
                 fontSize: "18px",
                 fontWeight: 500,
                 lineHeight: "normal",
                 color: "#000",
                 borderRadius: "10px",
-                backgroundColor: "white"
+                backgroundColor: "rgba(0, 0, 0, 0.00)"
               }}
             >
               Builder Login
@@ -93,7 +93,7 @@ export function Header() {
             <button 
               className="px-6 py-3 transition-all duration-200"
               style={{
-                fontFamily: "Poppins Medium",
+                fontFamily: "var(--font-poppins)",
                 fontSize: "18px",
                 fontWeight: 500,
                 lineHeight: "normal",

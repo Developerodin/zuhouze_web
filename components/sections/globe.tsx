@@ -76,8 +76,8 @@ export function GlobeSection() {
           viewport={{ once: true }}
         >
           {/* Globe Container - Show only upper half */}
-          <div className="relative h-[562px] mt-0">
-            <div className="absolute -top-[200px] -right-[10px] w-[800px] h-[800px] ">
+          <div className="relative h-[562px] mt-0" >
+            <div className="absolute -top-[200px] -right-[10px] w-[800px] h-[800px] " >
               <Globe className="h-full w-full top-40" />
             </div>
           </div>
