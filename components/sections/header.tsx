@@ -8,7 +8,7 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full">
       <div className="backdrop-blur-md">
-        <div className="flex items-center justify-between py-5 px-10">
+        <div className="flex items-center justify-between py-5 px-12">
           {/* Logo Section */}
           <div className="flex items-center" style={{ width: "500px" }}>
             <Image

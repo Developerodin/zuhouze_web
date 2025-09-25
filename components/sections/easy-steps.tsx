@@ -35,7 +35,7 @@ const steps = [
 
 export function EasySteps() {
   return (
-    <section className="relative py-20 bg-white overflow-hidden">
+    <section id="about" className="relative py-20 bg-white overflow-hidden">
       {/* Retro Grid Background - Starting from second card */}
       <div 
         className="absolute z-0 w-full"

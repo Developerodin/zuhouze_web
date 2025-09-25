@@ -165,7 +165,7 @@ export function HeroVideo() {
                   className="text-white/90 max-w-3xl mx-auto mt-2"
                   style={{
                     fontFamily: "var(--font-poppins)",
-                    fontSize: "clamp(0.9rem, 2vw, 1.25rem)",
+                    fontSize: "18px",
                     fontWeight: 400,
                     lineHeight: "1.6",
                     opacity: subtitleOpacity,
@@ -186,7 +186,7 @@ export function HeroVideo() {
                   initial={{ opacity: 0, y: 20 }}
                 >
                   <div 
-                    className="flex items-center justify-center gap-4 px-8 py-4 bg-white rounded-xl cursor-pointer hover:bg-gray-50 transition-all duration-300 shadow-lg"
+                    className="flex items-center justify-center gap-4 px-8 py-2 bg-white rounded-lg cursor-pointer hover:bg-gray-50 transition-all duration-300 shadow-lg"
                     onClick={() => {}}
                   >
                     {/* Search Properties Text */}
@@ -219,9 +219,19 @@ export function HeroVideo() {
                     {/* Avatar Circles */}
                     <AvatarCircles 
                       avatarUrls={buttonAvatars}
-                      numPeople={99}
+                      
                       className="!-space-x-2"
                     />
+                     <span 
+                      className="text-black"
+                      style={{
+                        fontFamily: "var(--font-poppins)",
+                        fontSize: "18px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      +99
+                    </span>
                   </div>
                 </motion.div>
               </motion.div>
