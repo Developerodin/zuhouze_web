@@ -54,14 +54,13 @@ export function HeroVideo() {
         <div className="relative">
           {/* Video Background */}
           <div 
-            className="relative mx-auto"
+            className="relative mx-auto md:h-screen h-[60vh]"
             style={{
               width: '100%',
               maxWidth: 'calc(100% - 60px)',
               borderRadius: '26px',
               overflow: 'hidden',
               margin: '30px auto',
-              height: '100vh',
             }}
           >
             <video
@@ -86,7 +85,7 @@ export function HeroVideo() {
             {/* Text Overlay on Video */}
             <div className="absolute inset-0 flex items-center justify-center z-10">
               <motion.div 
-                className="text-center px-4" 
+                className="text-center px-4 flex flex-col items-center justify-center md:block" 
                 style={{ 
                   marginTop: containerMarginTop,
                 }}
@@ -160,11 +159,10 @@ export function HeroVideo() {
 
                 {/* Mobile Large Title - Always visible on mobile */}
                 <motion.h1
-                  className="leading-tight block md:hidden"
+                  className="leading-tight block md:hidden text-center"
                   style={{
                     color: '#FFF',
-                    textAlign: 'center',
-                    fontSize: 'clamp(32px, 8vw, 48px)',
+                    fontSize: 'clamp(24px, 6vw, 36px)',
                     fontStyle: 'normal',
                     fontWeight: 400,
                     lineHeight: 'normal',
@@ -189,6 +187,76 @@ export function HeroVideo() {
                     Real Estate Closer.
                   </motion.span>
                 </motion.h1>
+
+                {/* Mobile Subtitle */}
+                <motion.p
+                  className="text-white/90 max-w-sm mx-auto mt-4 block md:hidden text-center"
+                  style={{
+                    fontFamily: "var(--font-poppins)",
+                    fontSize: "14px",
+                    fontWeight: 400,
+                    lineHeight: "1.5",
+                  }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1.2 }}
+                >
+                  Swipe through global properties with ease. Get AI-matched homes, video tours, 
+                  smart recommendations, and instant connections - all in one place.
+                </motion.p>
+
+                {/* Mobile Button */}
+                <motion.div
+                  className="mt-6 flex justify-center block md:hidden"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1.4 }}
+                >
+                  <div 
+                    className="flex items-center justify-center gap-3 px-6 py-3 bg-white rounded-lg cursor-pointer hover:bg-gray-50 transition-all duration-300 shadow-lg"
+                    onClick={() => {}}
+                  >
+                    <span 
+                      className="font-semibold text-black"
+                      style={{
+                        fontFamily: "var(--font-poppins)",
+                        fontSize: "16px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Search Properties
+                    </span>
+                    
+                    <svg
+                      className="w-4 h-4 text-black"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                    
+                    <AvatarCircles 
+                      avatarUrls={buttonAvatars}
+                      className="!-space-x-1"
+                    />
+                    <span 
+                      className="text-black"
+                      style={{
+                        fontFamily: "var(--font-poppins)",
+                        fontSize: "16px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      +99
+                    </span>
+                  </div>
+                </motion.div>
 
                 {/* Subtitle - Appears on scroll (Desktop only) */}
                 <motion.p
