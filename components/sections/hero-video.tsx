@@ -38,7 +38,6 @@ export function HeroVideo() {
               overflow: 'hidden',
               margin: '30px auto',
               height: '100vh',
-              maxHeight: '700px'
             }}
           >
             <video
@@ -62,7 +61,7 @@ export function HeroVideo() {
 
             {/* Text Overlay on Video */}
             <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="text-center px-4" style={{ marginTop: '350px' }}>
+              <div className="text-center px-4" style={{ marginTop: '400px' }}>
                 {/* Main Title */}
                 <motion.h1
                   className="font-bold leading-tight"
