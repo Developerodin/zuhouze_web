@@ -24,7 +24,7 @@ export function HeroVideo() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden pt-24 pb-20">
+    <section className="relative w-full overflow-hidden pt-16 pb-8">
       {/* Video Container */}
       <div className="w-full px-2">
         <div className="relative">
@@ -68,7 +68,7 @@ export function HeroVideo() {
                   style={{
                     color: '#FFF',
                     textAlign: 'center',
-                    fontSize: 165,
+                    fontSize: 160,
                     fontStyle: 'normal',
                     fontWeight: 400,
                     lineHeight: 'normal',
