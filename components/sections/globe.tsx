@@ -6,7 +6,7 @@ import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 
 export function GlobeSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden" style={{ background: '#FFFFFF',margin:"40px",borderRadius:"26px" }}>
+    <section className="relative min-h-screen overflow-hidden" style={{ background: '#FCFCFC',marginLeft:"40px",marginRight:"40px",borderRadius:"26px" }}>
       <div >
         <div 
           className="absolute bottom-[-140px] left-0 w-1/2 h-1/2 z-10"
@@ -27,32 +27,31 @@ export function GlobeSection() {
           viewport={{ once: true }}
         >
           
-          <h1 className="mb-4 leading-tight" style={{ fontFamily: 'var(--font-fredoka)' }}>
-            <span
+          <h1 className="mb-4" style={{ fontFamily: 'var(--font-fredoka)', lineHeight: '0.9' }}>
+            <div
               style={{
                 background: 'linear-gradient(230deg, #EC4899 6.18%, #974FDF 41.1%, #1C72FF 56.62%, #10B981 76.41%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 fontSize: '132px',
-                
-                
+                display: 'block'
               }}
             >
               Homes Across
-            </span>
-            <br />
-            <span
+            </div>
+            <div
               style={{
                 background: 'linear-gradient(230deg, #EC4899 6.18%, #974FDF 41.1%, #1C72FF 56.62%, #10B981 76.41%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 fontSize: '132px',
+                display: 'block'
               }}
             >
               the Globe.
-            </span>
+            </div>
           </h1>
           
           
