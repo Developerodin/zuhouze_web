@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 py-8">
+    <footer className="bg-white border-t border-gray-200 pb-30 pt-6">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Bottom Section */}
         <motion.div
-          className="flex justify-center items-center"
+          className="flex justify-center items-start pt-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

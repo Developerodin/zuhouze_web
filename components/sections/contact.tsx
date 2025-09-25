@@ -72,7 +72,7 @@ export function Contact() {
           viewport={{ once: true }}
         >
           {/* Contact Button with Gradient Text */}
-          <div className="group relative mx-auto inline-flex items-center justify-center rounded-full px-4 py-1.5 bg-white shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] mb-0">
+          <div className="group relative mx-auto inline-flex items-center justify-center  mb-0">
             {/* <span
               className={cn(
                 "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
@@ -91,7 +91,7 @@ export function Contact() {
                 className="text-sm font-medium"
                 style={{
                   fontFamily: 'var(--font-fredoka)', 
-                  fontSize: '60px',
+                  fontSize: '30px',
                   fontWeight: 400,
                   background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
                   WebkitBackgroundClip: 'text',

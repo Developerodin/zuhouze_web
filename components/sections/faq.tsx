@@ -43,7 +43,7 @@ export function FAQ() {
 
   return (
     <>
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section id="faq" className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Background Image */}
           <div className="absolute inset-0 z-0 px-4 sm:px-6 lg:px-8">
@@ -154,11 +154,11 @@ export function FAQ() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <p className="text-gray-600 text-lg">
+            <p className="text-black text-lg">
               Still have questions? Email us at{" "}
               <a
                 href="mailto:support@zuhouze.com"
-                className="text-blue-600 hover:text-blue-800 font-medium underline"
+                className="text-black hover:text-blue-800  underline"
               >
                 support@zuhouze.com
               </a>
