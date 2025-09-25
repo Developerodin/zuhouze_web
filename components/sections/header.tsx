@@ -5,20 +5,29 @@ import { Search } from "lucide-react";
 import Image from "next/image";
 
 export function Header() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full">
       <div className="backdrop-blur-md">
         <div className="flex items-center justify-between py-5 px-12">
           {/* Logo Section */}
           <div className="flex items-center" style={{ width: "500px" }}>
-            <Image
-              src="/assets/Logo.png"
-              alt="Zuhouze Logo"
-              width={197}
-              height={48}
-              className="h-10 w-auto ml-2"
-              priority
-            />
+            <button
+              onClick={scrollToTop}
+              className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
+            >
+              <Image
+                src="/assets/Logo.png"
+                alt="Zuhouze Logo"
+                width={197}
+                height={48}
+                className="h-10 w-auto ml-2"
+                priority
+              />
+            </button>
           </div>
 
           {/* Navigation */}
