@@ -69,16 +69,16 @@ export function GlobeSection() {
 
         {/* Globe Section - Bottom Right */}
         <motion.div
-          className="absolute bottom-0 right-0 z-30 overflow-hidden"
+          className="absolute bottom-0 right-0 z-30 "
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
           viewport={{ once: true }}
         >
           {/* Globe Container - Show only upper half */}
-          <div className="relative h-[562px] w-[800px] mt-10">
-            <div className="absolute -top-[200px] -right-[100px] w-[800px] h-[800px] ">
-              <Globe className="w-full h-full" />
+          <div className="relative h-[562px] mt-0">
+            <div className="absolute -top-[200px] -right-[10px] w-[800px] h-[800px] ">
+              <Globe className="h-full w-full top-40" />
             </div>
           </div>
         </motion.div>
