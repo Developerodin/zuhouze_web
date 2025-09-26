@@ -13,11 +13,11 @@ const buttonAvatars = [
     profileUrl: "#"
   },
   {
-    imageUrl: "/assets/owner-avatar.png", 
+    imageUrl: "https://avatars.githubusercontent.com/u/20110627", 
     profileUrl: "#"
   },
   {
-    imageUrl: "/assets/owner-avatar.png",
+    imageUrl: "https://avatars.githubusercontent.com/u/89768406",
     profileUrl: "#"
   }
 ];
@@ -32,7 +32,7 @@ export function HeroVideo() {
   const titleY = useTransform(scrollYProgress, [0, 0.05], [0, 0]); // Keep title in same position
   const largeTitleOpacity = useTransform(scrollYProgress, [0, 0.03], [1, 0]); // Hide large title quickly
   const smallTitleOpacity = useTransform(scrollYProgress, [0, 0.02, 0.05], [0, 0, 1]); // Show small title
-  const containerMarginTop = useTransform(scrollYProgress, [0, 0.05], [400, 0]); // Reduce margin
+  const containerMarginTop = useTransform(scrollYProgress, [0, 0.05], [0, 0]); // Reduce margin
   const subtitleOpacity = useTransform(scrollYProgress, [0, 0.02, 0.05], [0, 0, 1]); // Show subtitle
   const buttonOpacity = useTransform(scrollYProgress, [0, 0.02, 0.05], [0, 0, 1]); // Show button
   const buttonY = useTransform(scrollYProgress, [0, 0.05], [20, 0]);
@@ -213,14 +213,14 @@ export function HeroVideo() {
                   transition={{ duration: 1, delay: 1.4 }}
                 >
                   <div 
-                    className="flex items-center justify-center gap-3 px-6 py-3 bg-white rounded-lg cursor-pointer hover:bg-gray-50 transition-all duration-300 shadow-lg"
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-white rounded-lg cursor-pointer hover:bg-gray-50 transition-all duration-300 shadow-lg"
                     onClick={() => {}}
                   >
                     <span 
                       className="font-semibold text-black"
                       style={{
                         fontFamily: "var(--font-poppins)",
-                        fontSize: "16px",
+                        fontSize: "14px",
                         fontWeight: 500,
                       }}
                     >
@@ -228,7 +228,7 @@ export function HeroVideo() {
                     </span>
                     
                     <svg
-                      className="w-4 h-4 text-black"
+                      className="w-3 h-3 text-black"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -249,7 +249,7 @@ export function HeroVideo() {
                       className="text-black"
                       style={{
                         fontFamily: "var(--font-poppins)",
-                        fontSize: "16px",
+                        fontSize: "14px",
                         fontWeight: 500,
                       }}
                     >
