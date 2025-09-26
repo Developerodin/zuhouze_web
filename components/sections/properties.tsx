@@ -8,6 +8,26 @@ import Image from "next/image";
 
 const locations = ["Dubai", "Singapore", "Malaysia", "India"];
 
+// Image mapping for each location
+const locationImages = {
+  Dubai: {
+    first: "/assets/NewProperty.svg",
+    second: "/assets/NewProperty_2.svg"
+  },
+  Singapore: {
+    first: "/assets/Singapore.svg",
+    second: "/assets/Singapore2.svg"
+  },
+  Malaysia: {
+    first: "/assets/Malaysia.svg",
+    second: "/assets/Malaysia2.svg"
+  },
+  India: {
+    first: "/assets/India.svg",
+    second: "/assets/India2.svg"
+  }
+};
+
 export function Properties() {
   const [activeLocation, setActiveLocation] = useState("Dubai");
 
@@ -127,7 +147,7 @@ export function Properties() {
                 <button
                   key={location}
                   onClick={() => setActiveLocation(location)}
-                  className="flex items-center justify-center transition-all duration-300"
+                  className="flex items-center justify-center transition-all duration-300 sm:px-10 sm:py-3.5"
                   style={{
                     fontFamily: 'Poppins',
                     lineHeight: 'normal',
@@ -137,7 +157,6 @@ export function Properties() {
                     color: activeLocation === location ? '#fff' : '#000',
                     backgroundColor: activeLocation === location ? '#000' : 'rgba(234, 234, 238, 0.31)'
                   }}
-                  className="sm:px-10 sm:py-3.5"
                 >
                   {location}
                 </button>
@@ -188,8 +207,8 @@ export function Properties() {
           >
             <div className="relative w-full rounded-2xl overflow-hidden ">
               <Image
-                src="/assets/NewProperty.svg"
-                alt="Property 1"
+                src={locationImages[activeLocation as keyof typeof locationImages].first}
+                alt={`${activeLocation} Property 1`}
                 width={100}
                 height={100}
                 className=" w-full"
@@ -207,8 +226,8 @@ export function Properties() {
           >
             <div className="relative w-full  overflow-hidden">
               <Image
-                src="/assets/NewProperty_2.svg"
-                alt="Property 2"
+                src={locationImages[activeLocation as keyof typeof locationImages].second}
+                alt={`${activeLocation} Property 2`}
                width={100}
                height={100}
                 className="w-full"

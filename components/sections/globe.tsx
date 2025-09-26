@@ -6,7 +6,7 @@ import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 
 export function GlobeSection() {
   return (
-    <section className="relative h-[500px] md:min-h-screen overflow-hidden py-6 md:py-20" style={{ background: '#FCFCFC', borderRadius:"26px",marginRight:"30px",marginLeft:"30px" ,marginTop:"10px" ,marginBottom:"20px"}}>
+    <section className="relative h-[450px] md:h-[600px] overflow-hidden py-6 md:py-20" style={{ background: '#FCFCFC', borderRadius:"26px",marginRight:"30px",marginLeft:"30px" ,marginTop:"10px" ,marginBottom:"20px"}}>
       <div >
         {/* Gradient Background - Desktop only */}
         <div 
@@ -35,7 +35,7 @@ export function GlobeSection() {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                fontSize: '132px',
+                fontSize: '122px',
                 display: 'block'
               }}
             >
@@ -47,7 +47,7 @@ export function GlobeSection() {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                fontSize: '132px',
+                fontSize: '122px',
                 display: 'block'
               }}
             >
@@ -128,8 +128,8 @@ export function GlobeSection() {
         >
           {/* Globe Container - Show only upper half */}
           <div className="relative h-[562px] mt-0" >
-            <div className="absolute -top-[200px] -right-[10px] w-[800px] h-[800px] " >
-              <Globe className="h-full w-full top-40" />
+            <div className="absolute top-[100px] -right-[10px] w-[800px] h-[800px] " >
+              <Globe className="h-full max-w-[1800px] " />
             </div>
           </div>
         </motion.div>
