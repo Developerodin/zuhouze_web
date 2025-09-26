@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Search, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -91,31 +92,30 @@ export function Header() {
 
           {/* Desktop Buttons Section */}
           <div className="hidden lg:flex items-center space-x-4" style={{ width: "500px", justifyContent: "flex-end" }}>
-            <button 
-              className="px-6 py-3 border transition-all duration-200"
+            <RainbowButton 
+              variant="outline"
+              className="px-4 py-2"
               style={{
-                borderColor: "rgba(211, 211, 211, 0.31)",
                 fontFamily: "var(--font-poppins)",
                 fontSize: "18px",
                 fontWeight: 500,
                 lineHeight: "normal",
-                color: "#000",
-                borderRadius: "10px",
-                backgroundColor: "rgba(0, 0, 0, 0.00)"
+                borderRadius: "10px"
               }}
             >
               Builder Login
-            </button>
+            </RainbowButton>
             <button 
-              className="px-6 py-3 transition-all duration-200"
+              className="px-4 py-1 transition-all duration-200 text-white bg-black hover:bg-white hover:text-black hover:border border-black"
               style={{
                 fontFamily: "var(--font-poppins)",
                 fontSize: "18px",
                 fontWeight: 500,
                 lineHeight: "normal",
-                color: "white",
+                
                 borderRadius: "10px",
-                backgroundColor: "#000"
+               
+
               }}
             >
               Sign up
@@ -198,23 +198,21 @@ export function Header() {
 
               {/* Mobile Buttons */}
               <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
-                <button 
-                  className="w-full px-6 py-3 border transition-all duration-200 rounded-lg"
+                <RainbowButton 
+                  variant="outline"
+                  className="w-full px-6 py-3 rounded-lg"
                   style={{
-                    borderColor: "rgba(211, 211, 211, 0.31)",
                     fontFamily: "var(--font-poppins)",
                     fontSize: "18px",
                     fontWeight: 500,
-                    lineHeight: "normal",
-                    color: "#000",
-                    backgroundColor: "rgba(0, 0, 0, 0.00)"
+                    lineHeight: "normal"
                   }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Builder Login
-                </button>
+                </RainbowButton>
                 <button 
-                  className="w-full px-6 py-3 transition-all duration-200 rounded-lg"
+                  className="w-full px-6 py-1 transition-all duration-200 rounded-lg hover:bg-white hover:text-black"
                   style={{
                     fontFamily: "var(--font-poppins)",
                     fontSize: "18px",
