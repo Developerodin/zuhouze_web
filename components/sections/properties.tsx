@@ -156,7 +156,7 @@ export function Properties() {
 
 
         <motion.div
-          className="mb-10"
+          className="mb-6 lg:mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -172,7 +172,7 @@ export function Properties() {
 
         {/* Property Images */}
         <motion.div
-          className="flex flex-col lg:flex-row gap-6 mb-12"
+          className="flex flex-col lg:flex-row gap-6 lg:gap-4 xl:gap-3 2xl:gap-3 mb-12 "
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -180,18 +180,19 @@ export function Properties() {
         >
           {/* First Property Image */}
           <motion.div
-            className="flex-1"
+            className="flex-1 "
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
+            <div className="relative w-full rounded-2xl overflow-hidden ">
               <Image
                 src="/assets/NewProperty.svg"
                 alt="Property 1"
-                fill
-                className="object-contain"
+                width={100}
+                height={100}
+                className=" w-full"
               />
             </div>
           </motion.div>
@@ -204,12 +205,13 @@ export function Properties() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
+            <div className="relative w-full  overflow-hidden">
               <Image
                 src="/assets/NewProperty_2.svg"
                 alt="Property 2"
-                fill
-                className="object-contain"
+               width={100}
+               height={100}
+                className="w-full"
               />
             </div>
           </motion.div>
