@@ -3,42 +3,44 @@ import { Marquee } from "./marquee";
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
+    name: "Aarav",
+    username: "@aarav_in",
+    body: "Zuhouze makes finding homes in India so simple. The video tours save me so much time.",
     img: "https://avatar.vercel.sh/jack",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
+    name: "Fatima",
+    username: "@fatima_dxb",
+    body: "Searching in Dubai feels easy now. Zuhouze is clear, modern, and transparent.",
     img: "https://avatar.vercel.sh/jill",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Wei Ling",
+    username: "@weiling_sg",
+    body: "I love how smooth and aspirational the experience feels in Singapore.",
     img: "https://avatar.vercel.sh/john",
   },
   {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Amir",
+    username: "@amir_my",
+    body: "In Malaysia, Zuhouze is a game-changer. Video-first makes it so engaging.",
     img: "https://avatar.vercel.sh/jane",
   },
   {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Neha",
+    username: "@neha_in",
+    body: "Zuhouze stands out. The video listings are clear and super helpful.",
     img: "https://avatar.vercel.sh/jenny",
   },
   {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Omar",
+    username: "@omar_dxb",
+    body: "Finally, a platform in Dubai that feels modern and trustworthy.",
     img: "https://avatar.vercel.sh/james",
   },
 ];
+
+
 
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);

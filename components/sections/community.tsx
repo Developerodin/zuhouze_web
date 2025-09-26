@@ -56,7 +56,7 @@ const avatars = [
 
 export function Community() {
   return (
-    <section id="community" className="py-8 md:py-20 bg-white mb-20">
+    <section id="community" className="py-0 md:pb-4 bg-white mb-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"

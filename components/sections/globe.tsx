@@ -6,7 +6,7 @@ import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 
 export function GlobeSection() {
   return (
-    <section className="relative h-[500px] md:min-h-screen overflow-hidden px-4 sm:px-6 lg:px-10" style={{ background: '#FCFCFC', borderRadius:"26px" }}>
+    <section className="relative h-[500px] md:min-h-screen overflow-hidden py-6 md:py-20" style={{ background: '#FCFCFC', borderRadius:"26px",marginRight:"30px",marginLeft:"30px" }}>
       <div >
         {/* Gradient Background - Desktop only */}
         <div 

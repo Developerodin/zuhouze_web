@@ -214,7 +214,12 @@ export function HeroVideo() {
                 >
                   <div 
                     className="flex items-center justify-center gap-2 px-4 py-2 bg-white rounded-lg cursor-pointer hover:bg-gray-50 transition-all duration-300 shadow-lg"
-                    onClick={() => {}}
+                    onClick={() => {
+                      const propertiesSection = document.getElementById('properties');
+                      if (propertiesSection) {
+                        propertiesSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                   >
                     <span 
                       className="font-semibold text-black"

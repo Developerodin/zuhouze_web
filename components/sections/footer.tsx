@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 pb-30 pt-6">
+    <footer className="bg-white border-t border-gray-200 pb-10 pt-6">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Bottom Section */}
         <motion.div

@@ -46,19 +46,20 @@ export function FAQ() {
       <section id="faq" className="py-8 md:py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Background Image */}
-          <div className="absolute inset-0 z-0 px-4 sm:px-6 lg:px-8 hidden md:block">
+          <div className="absolute inset-0 z-0 px-4 sm:px-6 lg:px-10 hidden md:block">
             <div 
-              className="w-full h-full bg-center bg-no-repeat rounded-2xl"
+              className="w-full h-full bg-center bg-no-repeat rounded-3xl"
               style={{
                 backgroundImage: 'url(/assets/FaqBg.svg)',
-                backgroundSize: 'contain',
-                backgroundPosition: 'center'
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
               }}
             />
           </div>
 
           {/* Main Content */}
-          <div className="relative z-10 flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+          <div className="relative z-10 flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
           {/* Left Side - Title */}
           <motion.div
             className="flex-1"
