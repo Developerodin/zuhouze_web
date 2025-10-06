@@ -111,7 +111,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                   >
-                    Bringing the Global
+                    From every corner of the
                   </motion.span>
                   
                   <motion.span
@@ -120,7 +120,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8 }}
                   >
-                    Real Estate Closer.
+                    globe to your screen.
                   </motion.span>
                 </motion.h1>
 
@@ -130,7 +130,7 @@ export function HeroVideo() {
                     className="leading-tight hidden md:block"
                     style={{
                       color: '#FFF',
-                      fontSize: 160,
+                      fontSize: 110,
                       fontStyle: 'normal',
                       fontWeight: 400,
                       lineHeight: 'normal',
@@ -143,7 +143,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                   >
-                    Bringing the Global
+                    From every corner of the
                   </motion.span>
                   
                   <motion.span
@@ -152,7 +152,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8 }}
                   >
-                    Real Estate Closer.
+                    globe to your screen
                   </motion.span>
                   </motion.h1>
                 )}
@@ -162,7 +162,7 @@ export function HeroVideo() {
                   className="leading-tight block md:hidden text-center"
                   style={{
                     color: '#FFF',
-                    fontSize: 'clamp(24px, 6vw, 36px)',
+                    fontSize: 'clamp(20px, 6vw, 20px)',
                     fontStyle: 'normal',
                     fontWeight: 400,
                     lineHeight: 'normal',
@@ -175,7 +175,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                   >
-                    Bringing the Global
+                    From every corner of the
                   </motion.span>
                   
                   <motion.span
@@ -184,7 +184,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8 }}
                   >
-                    Real Estate Closer.
+                    globe to your screen
                   </motion.span>
                 </motion.h1>
 

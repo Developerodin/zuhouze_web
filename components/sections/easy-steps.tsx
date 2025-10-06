@@ -78,7 +78,7 @@ export function EasySteps() {
             >
               Zuhaush
             </AnimatedGradientText>{" "}
-            is a modern real-estate marketplace with a video-first approach, making property discovery engaging, transparent, and aspirational.
+            is a modern real-estate marketplace. Zuhaush puts the world’s homes at your fingertips—discover, connect, and dream in just a tap
           </h1>
         </motion.div>
 

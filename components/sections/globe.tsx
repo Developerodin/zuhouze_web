@@ -35,7 +35,7 @@ export function GlobeSection() {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                fontSize: '122px',
+                fontSize: '100px',
                 display: 'block'
               }}
             >
@@ -47,7 +47,7 @@ export function GlobeSection() {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                fontSize: '122px',
+                fontSize: '100px',
                 display: 'block'
               }}
             >
@@ -57,7 +57,7 @@ export function GlobeSection() {
           
           
           <motion.p
-            className="text-lg md:text-xl text-black mb-4"
+            className="text-lg md:text-xl text-black mb-1"
             style={{ fontFamily: 'var(--font-fredoka)' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -66,6 +66,22 @@ export function GlobeSection() {
           >
             Spin and explore →
           </motion.p>
+          <motion.p
+            className="text-lg md:text-lg text-black mb-4"
+            style={{ fontFamily: 'var(--font-fredoka)' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <p className="w-xl"> 
+            Zuhouze makes global property discovery simple, seamless, and just a tap away.
+Explore dream homes and investments across the world with ease.
+Your next property is waiting — just tap and explore with Zuhouze.
+            </p>
+          </motion.p>
+
+
         </motion.div>
 
         {/* Mobile Layout - Centered */}
