@@ -25,6 +25,7 @@ const buttonAvatars = [
 export function HeroVideo() {
   const [scrollY, setScrollY] = useState(0);
   const [showLargeTitle, setShowLargeTitle] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
 
   // Transform values based on scroll - all happen together with single scroll
@@ -40,12 +41,21 @@ export function HeroVideo() {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      // Hide large title when scroll progress is greater than 0.03
-      setShowLargeTitle(window.scrollY < window.innerHeight * 0.06);
+      
+      // Check if user has scrolled down (more than 50px)
+      if (window.scrollY > 50 && !hasScrolled) {
+        setHasScrolled(true);
+        setShowLargeTitle(false);
+      }
+      
+      // Only show large title if user hasn't scrolled yet
+      if (!hasScrolled) {
+        setShowLargeTitle(window.scrollY < window.innerHeight * 0.06);
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [hasScrolled]);
 
   return (
     <section className="relative w-full overflow-hidden pt-16 pb-8">
@@ -90,7 +100,7 @@ export function HeroVideo() {
                   marginTop: containerMarginTop,
                 }}
               >
-                {/* Small Title - Shows on scroll (Desktop only) */}
+                {/* Small Title - Shows on scroll or after user has scrolled (Desktop only) */}
                 <motion.h1
                   className="font-bold leading-tight hidden md:block"
                   style={{
@@ -102,7 +112,7 @@ export function HeroVideo() {
                     fontWeight: 400,
                     lineHeight: 'normal',
                     transform: `scale(${titleScale})`,
-                    opacity: smallTitleOpacity,
+                    opacity: hasScrolled ? 1 : smallTitleOpacity,
                   }}
                 >
                   <motion.span
@@ -263,7 +273,7 @@ export function HeroVideo() {
                   </div>
                 </motion.div>
 
-                {/* Subtitle - Appears on scroll (Desktop only) */}
+                {/* Subtitle - Appears on scroll or after user has scrolled (Desktop only) */}
                 <motion.p
                   className="text-white/90 max-w-3xl mx-auto mt-2 hidden md:block"
                   style={{
@@ -271,7 +281,7 @@ export function HeroVideo() {
                     fontSize: "18px",
                     fontWeight: 400,
                     lineHeight: "1.6",
-                    opacity: subtitleOpacity,
+                    opacity: hasScrolled ? 1 : subtitleOpacity,
                   }}
                   initial={{ opacity: 0 }}
                 >
@@ -279,12 +289,12 @@ export function HeroVideo() {
                   smart recommendations, and instant connections - all in one place.
                 </motion.p>
 
-                {/* Custom Button - Appears on scroll (Desktop only) */}
+                {/* Custom Button - Appears on scroll or after user has scrolled (Desktop only) */}
                 <motion.div
                   className="mt-8 sm:mt-12 flex justify-center hidden md:flex"
                   style={{
-                    opacity: buttonOpacity,
-                    y: buttonY,
+                    opacity: hasScrolled ? 1 : buttonOpacity,
+                    y: hasScrolled ? 0 : buttonY,
                   }}
                   initial={{ opacity: 0, y: 20 }}
                 >
