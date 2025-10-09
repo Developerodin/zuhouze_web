@@ -56,16 +56,7 @@ export function GlobeSection() {
           </h1>
           
           
-          <motion.p
-            className="text-lg md:text-xl text-black mb-1"
-            style={{ fontFamily: 'var(--font-fredoka)' }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Spin and explore →
-          </motion.p>
+          
           <motion.p
             className="text-lg md:text-lg text-black mb-4"
             style={{ fontFamily: 'var(--font-fredoka)' }}
@@ -80,7 +71,16 @@ Explore dream homes and investments across the world with ease.
 Your next property is waiting — just tap and explore with Zuhouze.
             </p>
           </motion.p>
-
+<motion.p
+            className="text-lg md:text-xl text-black mb-1"
+            style={{ fontFamily: 'var(--font-fredoka)' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Spin and explore →
+          </motion.p>
 
         </motion.div>
 
