@@ -106,103 +106,100 @@ export function Contact() {
           </h2> */}
         </motion.div>
 
-        {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-4">
-          {/* Left Side - Contact Information */}
+        {/* Desktop: Side by Side Layout | Mobile: Stacked Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Left Section - Contact Information */}
           <motion.div
-            className="flex flex-col justify-center"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            className="space-y-6"
           >
-            {/* Reach Out Text */}
-            <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "clamp(32px, 8vw, 50px)", fontWeight: 400, color: '#000', marginBottom: '1rem' }}>
+            {/* Heading */}
+            <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "clamp(32px, 8vw, 50px)", fontWeight: 400, color: '#000' }}>
               Reach Out to Us
             </h2>
             
+            {/* Subheading */}
             <p 
               style={{ 
                 fontFamily: 'var(--font-fredoka)', 
                 fontSize: "clamp(16px, 3vw, 18px)", 
                 fontWeight: 300, 
                 color: '#666',
-                marginBottom: '1rem',
                 lineHeight: '1.6'
               }}
             >
               We'd love to hear from you! Get in touch with us for any inquiries or support.
             </p>
 
-            {/* Contact Details */}
-            <div className="space-y-4">
-              {/* Phone */}
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p 
-                    style={{ 
-                      fontFamily: 'var(--font-fredoka)', 
-                      fontSize: "14px", 
-                      fontWeight: 500, 
-                      color: '#999',
-                      marginBottom: '0px'
-                    }}
-                  >
-                    Phone
-                  </p>
-                  <a 
-                    href="tel:9967567964"
-                    style={{ 
-                      fontFamily: 'var(--font-fredoka)', 
-                      fontSize: "clamp(14px, 3vw, 18px)", 
-                      fontWeight: 400, 
-                      color: '#000'
-                    }}
-                    className="hover:text-blue-600 transition-colors"
-                  >
-                    9967567964
-                  </a>
-                </div>
+            {/* Phone */}
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-black to-purple-500 flex items-center justify-center">
+                <Phone className="w-5 h-5 text-white" />
               </div>
+              <div>
+                <p 
+                  style={{ 
+                    fontFamily: 'var(--font-fredoka)', 
+                    fontSize: "14px", 
+                    fontWeight: 500, 
+                    color: '#999',
+                    marginBottom: '0px'
+                  }}
+                >
+                  Phone
+                </p>
+                <a 
+                  href="tel:9967567964"
+                  style={{ 
+                    fontFamily: 'var(--font-fredoka)', 
+                    fontSize: "clamp(14px, 3vw, 18px)", 
+                    fontWeight: 400, 
+                    color: '#000'
+                  }}
+                  className="hover:text-blue-600 transition-colors"
+                >
+                  9967567964
+                </a>
+              </div>
+            </div>
 
-              {/* Email */}
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-blue-500 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p 
-                    style={{ 
-                      fontFamily: 'var(--font-fredoka)', 
-                      fontSize: "14px", 
-                      fontWeight: 500, 
-                      color: '#999',
-                      marginBottom: '0px'
-                    }}
-                  >
-                    Email
-                  </p>
-                  <a 
-                    href="mailto:support@zuhouze.com"
-                    style={{ 
-                      fontFamily: 'var(--font-fredoka)', 
-                      fontSize: "clamp(14px, 3vw, 18px)", 
-                      fontWeight: 400, 
-                      color: '#000'
-                    }}
-                    className="hover:text-blue-600 transition-colors break-all"
-                  >
-                    support@zuhouze.com
-                  </a>
-                </div>
+            {/* Email */}
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-black flex items-center justify-center">
+                <Mail className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p 
+                  style={{ 
+                    fontFamily: 'var(--font-fredoka)', 
+                    fontSize: "14px", 
+                    fontWeight: 500, 
+                    color: '#999',
+                    marginBottom: '0px'
+                  }}
+                >
+                  Email
+                </p>
+                <a 
+                  href="mailto:support@zuhouze.com"
+                  style={{ 
+                    fontFamily: 'var(--font-fredoka)', 
+                    fontSize: "clamp(14px, 3vw, 18px)", 
+                    fontWeight: 400, 
+                    color: '#000'
+                  }}
+                  className="hover:text-blue-600 transition-colors break-all"
+                >
+                  support@zuhouze.com
+                </a>
               </div>
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex items-center gap-6 mt-8">
+            <div className="flex items-center gap-6">
               {/* Facebook */}
               <a 
                 href="#" 
@@ -247,83 +244,83 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* Right Side - Contact Form */}
+          {/* Right Section - Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            className="space-y-6"
           >
-            {/* Let's Connect Heading */}
-            <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "clamp(32px, 8vw, 50px)", fontWeight: 400, color: '#000', marginBottom: '2rem' }}>
+            {/* Heading */}
+            <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "clamp(32px, 8vw, 50px)", fontWeight: 400, color: '#000' }}>
               Let's Connect
             </h2>
 
+            {/* Contact Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <Input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your Name"
-                  required
-                  className="w-full"
-                  style={{
-                    padding: '21px 24px',
-                    alignItems: 'center',
-                    gap: '10px',
-                    borderRadius: '8px',
-                    border: '1px solid #E5E5E5',
-                    background: '#F8F8F8'
-                  }}
-                />
-              </div>
+              {/* Name Input */}
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your Name"
+                required
+                className="w-full"
+                style={{
+                  padding: '21px 24px',
+                  alignItems: 'center',
+                  gap: '10px',
+                  borderRadius: '8px',
+                  border: '1px solid #E5E5E5',
+                  background: '#F8F8F8'
+                }}
+              />
 
-              <div>
-                <Input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your Email"
-                  required
-                  className="w-full"
-                  style={{
-                    padding: '21px 24px',
-                    alignItems: 'center',
-                    gap: '10px',
-                    borderRadius: '8px',
-                    border: '1px solid #E5E5E5',
-                    background: '#F8F8F8'
-                  }}
-                />
-              </div>
+              {/* Email Input */}
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your Email"
+                required
+                className="w-full"
+                style={{
+                  padding: '21px 24px',
+                  alignItems: 'center',
+                  gap: '10px',
+                  borderRadius: '8px',
+                  border: '1px solid #E5E5E5',
+                  background: '#F8F8F8'
+                }}
+              />
 
-              <div>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={7}
-                  placeholder="Your Message"
-                  required
-                  className="w-full"
-                  style={{
-                    padding: '21px 24px',
-                    alignItems: 'center',
-                    gap: '10px',
-                    borderRadius: '8px',
-                    border: '1px solid #E5E5E5',
-                    background: '#F8F8F8'
-                  }}
-                />
-              </div>
+              {/* Message Textarea */}
+              <Textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={7}
+                placeholder="Your Message"
+                required
+                className="w-full"
+                style={{
+                  padding: '21px 24px',
+                  alignItems: 'center',
+                  gap: '10px',
+                  borderRadius: '8px',
+                  border: '1px solid #E5E5E5',
+                  background: '#F8F8F8'
+                }}
+              />
 
-              <div className="flex justify-center mt-8">
+              {/* Submit Button */}
+              <div className="flex justify-start lg:justify-start">
                 <ShimmerButton
                   className="px-12 py-3 w-48 text-base font-semibold bg-black text-white hover:bg-black/90 hover:text-black"
                   borderRadius="10px"
