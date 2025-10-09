@@ -80,7 +80,7 @@ export function HeroVideo() {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src="/assets/video/HeroBg_1.mp4" type="video/mp4" />
+              <source src="/assets/Video/HeroBg_1.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
