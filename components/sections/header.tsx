@@ -77,7 +77,7 @@ export function Header() {
               FAQ's
             </a>
             <a
-              href="#contact"
+              href="contact"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
                 fontFamily: "var(--font-poppins)",

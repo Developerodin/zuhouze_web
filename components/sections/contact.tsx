@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { useState, forwardRef, useRef } from "react";
 import { Users, Mail, Phone, MapPin, MessageCircle, Send, Heart, Star, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge"
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -66,49 +67,8 @@ export function Contact() {
     <section id="contact" className="py-30 bg-white">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Header Section */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          {/* Contact Button with Gradient Text */}
-          <div className="group relative mx-auto inline-flex items-center justify-center mb-0">
-            <div className="relative z-10 flex items-center gap-1">
-              <Image
-                src="/assets/Phone.png"
-                alt="Phone"
-                width={32}
-                height={32}
-              />
-              <AnimatedGradientText
-                className="text-sm font-medium"
-                style={{
-                  fontFamily: 'var(--font-fredoka)', 
-                  fontSize: 'clamp(24px, 6vw, 34px)',
-                  fontWeight: 400,
-                  background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  lineHeight: 'normal'
-                }}
-              >
-                Contact
-              </AnimatedGradientText>
-            </div>
-          </div>
-          
-          {/* Main Title */}
-          {/* <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "clamp(32px, 8vw, 60px)", fontWeight: 400, color: '#000' }}>
-            Let's Connect
-          </h2> */}
-        </motion.div>
-
-        {/* Desktop: Side by Side Layout | Mobile: Stacked Layout */}
+      
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Left Section - Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -117,20 +77,12 @@ export function Contact() {
             className="space-y-6"
           >
             {/* Heading */}
-            <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "clamp(32px, 8vw, 50px)", fontWeight: 400, color: '#000' }}>
+            <h2 className="heading">
               Reach Out to Us
             </h2>
             
             {/* Subheading */}
-            <p 
-              style={{ 
-                fontFamily: 'var(--font-fredoka)', 
-                fontSize: "clamp(16px, 3vw, 18px)", 
-                fontWeight: 300, 
-                color: '#666',
-                lineHeight: '1.6'
-              }}
-            >
+            <p className="description">
               We'd love to hear from you! Get in touch with us for any inquiries or support.
             </p>
 
@@ -253,7 +205,7 @@ export function Contact() {
             className="space-y-6"
           >
             {/* Heading */}
-            <h2 style={{ fontFamily: 'var(--font-fredoka)', fontSize: "clamp(32px, 8vw, 50px)", fontWeight: 400, color: '#000' }}>
+            <h2 className="heading">
               Let's Connect
             </h2>
 
@@ -268,15 +220,8 @@ export function Contact() {
                 onChange={handleChange}
                 placeholder="Enter your Name"
                 required
-                className="w-full"
-                style={{
-                  padding: '21px 24px',
-                  alignItems: 'center',
-                  gap: '10px',
-                  borderRadius: '8px',
-                  border: '1px solid #E5E5E5',
-                  background: '#F8F8F8'
-                }}
+                className="w-full input"
+               
               />
 
               {/* Email Input */}

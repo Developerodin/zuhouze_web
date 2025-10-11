@@ -137,7 +137,13 @@
   0% {
     background-position: 0%;}
   100% {
-    background-position: 200%;}}}
+    background-position: 200%;}}
+  --animate-background-position-spin: background-position-spin 3000ms infinite alternate;
+  @keyframes background-position-spin {
+  0% {
+    background-position: top center;}
+  100% {
+    background-position: bottom center;}}}
 
 @keyframes shimmer {
   0% {
@@ -234,4 +240,30 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.heading {
+  font-family: var(--font-fredoka);
+  font-size: clamp(28px, 6vw, 28px);
+  font-weight: 400;
+  color: #000;
+}
+
+.description {
+  font-family: var(--font-fredoka);
+  font-size: clamp(16px, 3vw, 18px);
+  font-weight: 300; 
+  color: #666;
+  line-height: 1.6;
+}
+
+.input {
+
+    padding: 21px 24px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #E5E5E5;
+    background: #F8F8F8;
+  
 }
