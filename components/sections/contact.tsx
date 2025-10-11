@@ -63,7 +63,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-10 bg-white">
+    <section id="contact" className="py-30 bg-white">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Header Section */}
         <motion.div
