@@ -30,7 +30,7 @@ const faqs = [
   {
     id: 5,
     question: "What makes Zuhouze different from other real estate platforms?",
-    answer: "Zuhouze combines the best of social media and real estate. Our swipe-based interface makes property browsing fun and engaging, while our AI-powered matchmaking ensures you find properties that truly match your lifestyle and preferences.",
+    answer: "Zuhouze will help you enhance your dream life and live anywhere you desire. Zuhouze combines the best of social media and real estate. Our swipe-based interface makes property browsing fun and engaging, while our AI-powered matchmaking ensures you find properties that truly match your lifestyle and preferences.",
   },
 ];
 

@@ -5,6 +5,7 @@ import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const locations = ["Dubai", "Singapore", "Malaysia", "India"];
 
@@ -30,6 +31,7 @@ const locationImages = {
 
 export function Properties() {
   const [activeLocation, setActiveLocation] = useState("Dubai");
+  const router = useRouter();
 
   return (
     <section id="properties" className="py-4 md:py-10 bg-white">
@@ -166,6 +168,7 @@ export function Properties() {
 
           {/* Right Side - View Properties Button */}
           <button
+            onClick={() => router.push('/properties')}
             className="px-6 py-3 text-base font-semibold bg-black text-white hover:bg-black/90 rounded-lg w-full md:w-auto"
             style={{ fontFamily: 'Poppins' }}
           >

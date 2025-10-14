@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Globe } from "@/components/ui/globe";
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
+import Link from "next/link";
 
 export function GlobeSection() {
   return (
@@ -71,8 +72,9 @@ Explore dream homes and investments across the world with ease.
 Your next property is waiting — just tap and explore with Zuhouze.
             </p>
           </motion.p>
-<motion.p
-            className="text-lg md:text-xl text-black mb-1"
+<Link href="/properties">
+          <motion.p
+            className="text-lg md:text-xl text-black mb-1 cursor-pointer hover:opacity-70 transition-opacity"
             style={{ fontFamily: 'var(--font-fredoka)' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -81,6 +83,7 @@ Your next property is waiting — just tap and explore with Zuhouze.
           >
             Spin and explore →
           </motion.p>
+          </Link>
 
         </motion.div>
 
@@ -122,8 +125,9 @@ Your next property is waiting — just tap and explore with Zuhouze.
           </h1>
           
           
+          <Link href="/properties">
           <motion.p
-            className="text-lg text-black mb-4"
+            className="text-lg text-black mb-4 cursor-pointer hover:opacity-70 transition-opacity"
             style={{ fontFamily: 'var(--font-fredoka)' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -132,6 +136,7 @@ Your next property is waiting — just tap and explore with Zuhouze.
           >
             Spin and explore →
           </motion.p>
+          </Link>
         </motion.div>
 
         {/* Globe Section - Desktop Bottom Right */}

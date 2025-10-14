@@ -5,6 +5,7 @@ import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 // Avatar data for the button
 const buttonAvatars = [
@@ -23,6 +24,7 @@ const buttonAvatars = [
 ];
 
 export function HeroVideo() {
+  const router = useRouter();
   const [scrollY, setScrollY] = useState(0);
   const [showLargeTitle, setShowLargeTitle] = useState(true);
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -107,7 +109,7 @@ export function HeroVideo() {
                     fontFamily: "var(--font-poppins)",
                     color: '#FFF',
                     textAlign: 'center',
-                    fontSize: 70,
+                    fontSize: 60,
                     fontStyle: 'normal',
                     fontWeight: 400,
                     lineHeight: 'normal',
@@ -121,7 +123,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                   >
-                    From every corner of the
+                    Your dream home is just a tap away 
                   </motion.span>
                   
                   <motion.span
@@ -130,7 +132,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8 }}
                   >
-                    globe to your screen.
+                   anywhere in the world, only on Zuhouze.
                   </motion.span>
                 </motion.h1>
 
@@ -140,7 +142,7 @@ export function HeroVideo() {
                     className="leading-tight hidden md:block"
                     style={{
                       color: '#FFF',
-                      fontSize: 110,
+                      fontSize: 80,
                       fontStyle: 'normal',
                       fontWeight: 400,
                       lineHeight: 'normal',
@@ -153,7 +155,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                   >
-                    From every corner of the
+                    Your dream home is just a tap away 
                   </motion.span>
                   
                   <motion.span
@@ -162,7 +164,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8 }}
                   >
-                    globe to your screen
+                  anywhere in the world, only on Zuhouze.
                   </motion.span>
                   </motion.h1>
                 )}
@@ -172,7 +174,7 @@ export function HeroVideo() {
                   className="leading-tight block md:hidden text-center"
                   style={{
                     color: '#FFF',
-                    fontSize: 'clamp(20px, 6vw, 20px)',
+                    fontSize: 'clamp(15px, 6vw, 15px)',
                     fontStyle: 'normal',
                     fontWeight: 400,
                     lineHeight: 'normal',
@@ -185,7 +187,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                   >
-                    From every corner of the
+                    Your dream home is just a tap away
                   </motion.span>
                   
                   <motion.span
@@ -194,7 +196,7 @@ export function HeroVideo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8 }}
                   >
-                    globe to your screen
+                    anywhere in the world, only on Zuhouze.
                   </motion.span>
                 </motion.h1>
 
@@ -203,7 +205,7 @@ export function HeroVideo() {
                   className="text-white/90 max-w-sm mx-auto mt-4 block md:hidden text-center"
                   style={{
                     fontFamily: "var(--font-poppins)",
-                    fontSize: "14px",
+                    fontSize: "13px",
                     fontWeight: 400,
                     lineHeight: "1.5",
                   }}
@@ -223,7 +225,7 @@ export function HeroVideo() {
                   transition={{ duration: 1, delay: 1.4 }}
                 >
                   <div 
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-white rounded-lg cursor-pointer hover:bg-gray-50 transition-all duration-300 shadow-lg"
+                    className="flex items-center justify-center gap-2 px-3 py-1 bg-white rounded-lg cursor-pointer hover:bg-gray-50 transition-all duration-300 shadow-lg"
                     onClick={() => {
                       const propertiesSection = document.getElementById('properties');
                       if (propertiesSection) {
@@ -235,7 +237,7 @@ export function HeroVideo() {
                       className="font-semibold text-black"
                       style={{
                         fontFamily: "var(--font-poppins)",
-                        fontSize: "14px",
+                        fontSize: "13px",
                         fontWeight: 500,
                       }}
                     >

@@ -9,8 +9,12 @@ import { RainbowButton } from "@/components/ui/rainbow-button";
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const navigateToHome = () => {
+    if (window.location.pathname !== '/') {
+      window.location.href = '/';
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const toggleMobileMenu = () => {
@@ -24,7 +28,7 @@ export function Header() {
           {/* Logo Section */}
           <div className="flex items-center" style={{ width: "500px" }}>
             <button
-              onClick={scrollToTop}
+              onClick={navigateToHome}
               className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
             >
               <Image
@@ -39,9 +43,9 @@ export function Header() {
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-12" style={{ flex: 1, justifyContent: "center" }}>
+          <nav className="hidden md:flex items-center gap-6" style={{ flex: 1, justifyContent: "center" }}>
             <a
-              href="#about"
+              href="/about"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
                 fontFamily: "var(--font-poppins)",
@@ -53,7 +57,7 @@ export function Header() {
               About
             </a>
             <a
-              href="#properties"
+              href="/properties"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
                 fontFamily: "var(--font-poppins)",
@@ -65,7 +69,19 @@ export function Header() {
               Properties
             </a>
             <a
-              href="#faq"
+              href="/destinations"
+              className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
+              style={{
+                fontFamily: "var(--font-poppins)",
+                fontSize: "18px",
+                fontWeight: 500,
+                lineHeight: "normal"
+              }}
+            >
+              Destinations
+            </a>
+            <a
+              href="/faq"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
                 fontFamily: "var(--font-poppins)",
@@ -77,7 +93,7 @@ export function Header() {
               FAQ's
             </a>
             <a
-              href="contact"
+              href="/contact"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
                 fontFamily: "var(--font-poppins)",
@@ -143,7 +159,7 @@ export function Header() {
               {/* Mobile Navigation Links */}
               <nav className="flex flex-col space-y-3">
                 <a
-                  href="#about"
+                  href="/about"
                   className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-3 rounded-lg hover:bg-gray-100"
                   style={{
                     fontFamily: "var(--font-poppins)",
@@ -156,7 +172,7 @@ export function Header() {
                   About
                 </a>
                 <a
-                  href="#properties"
+                  href="/properties"
                   className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-3 rounded-lg hover:bg-gray-100"
                   style={{
                     fontFamily: "var(--font-poppins)",
@@ -169,7 +185,20 @@ export function Header() {
                   Properties
                 </a>
                 <a
-                  href="#faq"
+                  href="/destinations"
+                  className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-3 rounded-lg hover:bg-gray-100"
+                  style={{
+                    fontFamily: "var(--font-poppins)",
+                    fontSize: "18px",
+                    fontWeight: 500,
+                    lineHeight: "normal"
+                  }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Destinations
+                </a>
+                <a
+                  href="/#faq"
                   className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-3 rounded-lg hover:bg-gray-100"
                   style={{
                     fontFamily: "var(--font-poppins)",
@@ -182,7 +211,7 @@ export function Header() {
                   FAQ's
                 </a>
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-3 rounded-lg hover:bg-gray-100"
                   style={{
                     fontFamily: "var(--font-poppins)",
