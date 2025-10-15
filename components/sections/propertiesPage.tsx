@@ -13,26 +13,26 @@ const locationImages = {
   Dubai: {
     first: "/assets/NewProperty.svg",
     second: "/assets/NewProperty_2.svg",
-    third: "/assets/NewProperty.svg",
-    fourth: "/assets/NewProperty_2.svg"
+    third: "/assets/Dubai3.svg",
+    fourth: "/assets/Dubai4.svg"
   },
   Singapore: {
     first: "/assets/Singapore.svg",
     second: "/assets/Singapore2.svg",
-    third: "/assets/Singapore.svg",
-    fourth: "/assets/Singapore2.svg"
+    third: "/assets/Singapore3.svg",
+    fourth: "/assets/Singapore4.svg"
   },
   Malaysia: {
     first: "/assets/Malaysia.svg",
     second: "/assets/Malaysia2.svg",
-    third: "/assets/Malaysia.svg",
-    fourth: "/assets/Malaysia2.svg"
+    third: "/assets/Malaysia3.svg",
+    fourth: "/assets/Malaysia4.svg"
   },
   India: {
     first: "/assets/India.svg",
     second: "/assets/India2.svg",
-    third: "/assets/India.svg",
-    fourth: "/assets/India2.svg"
+    third: "/assets/India3.svg",
+    fourth: "/assets/India4.svg"
   }
 };
 

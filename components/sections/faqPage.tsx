@@ -90,6 +90,8 @@ const agentFaqs = [
   },
 ];
 
+
+
 interface FAQ {
   id: number;
   question: string;
@@ -97,7 +99,7 @@ interface FAQ {
 }
 
 // FAQ Section Component (reusable)
-function FAQSection({ sectionIndex, title, faqs }: { sectionIndex: number; title: string; faqs: FAQ[] }) {
+function FAQSection({ sectionIndex, title, faqs, backgroundImage }: { sectionIndex: number; title: string; faqs: FAQ[]; backgroundImage: string }) {
   const [openItem, setOpenItem] = useState<number | null>(null);
 
   const toggleItem = (id: number) => {
@@ -112,7 +114,7 @@ function FAQSection({ sectionIndex, title, faqs }: { sectionIndex: number; title
           <div 
             className="w-full h-full bg-center bg-no-repeat rounded-3xl"
             style={{
-              backgroundImage: 'url(/assets/FaqBg.svg)',
+              backgroundImage: `url(${backgroundImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat'
@@ -215,19 +217,19 @@ export function FAQPage() {
   return (
     <div className="mt-24">
       {/* Customer FAQ Section */}
-      <FAQSection sectionIndex={1} title="Customer" faqs={customerFaqs} />
+      <FAQSection sectionIndex={1} title="Customer" faqs={customerFaqs} backgroundImage="/assets/FaqBg.svg" />
       
       {/* Spacing between sections */}
       <div className="h-12 md:h-20" />
       
       {/* Builder FAQ Section */}
-      <FAQSection sectionIndex={2} title="Builder" faqs={builderFaqs} />
+      <FAQSection sectionIndex={2} title="Builder" faqs={builderFaqs} backgroundImage="/assets/FaqBg2.svg" />
       
       {/* Spacing between sections */}
       <div className="h-12 md:h-20" />
       
       {/* Agent FAQ Section */}
-      <FAQSection sectionIndex={3} title="Agent" faqs={agentFaqs} />
+      <FAQSection sectionIndex={3} title="Agent" faqs={agentFaqs} backgroundImage="/assets/FaqBg3.svg" />
       
       {/* Email Section */}
       <section className="py-8 bg-white">
