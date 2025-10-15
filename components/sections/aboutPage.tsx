@@ -145,20 +145,29 @@ export function AboutPage() {
             }}>
               Our Mission
             </h3>
-            <p style={{
+            <div style={{
               fontFamily: 'Poppins',
               fontSize: 'clamp(14px, 2vw, 18px)',
               fontWeight: 400,
               color: '#666',
               lineHeight: '1.8'
             }}>
-              Our mission is to revolutionize the property search experience by leveraging cutting-edge AI technology. 
-              We aim to make finding your dream property as simple and enjoyable as swiping through your favorite app. 
-              By connecting property seekers with the perfect homes across the globe, we strive to eliminate the 
-              stress and complexity traditionally associated with property hunting. Our platform empowers users to 
-              make informed decisions quickly and confidently, ensuring that every match is tailored to their unique 
-              preferences and lifestyle needs.
-            </p>
+              <p className="mb-4">
+                Our mission is to reimagine the property search experience through the power of advanced AI innovation and human connection. We're transforming the way people discover their dream homes — making it as simple, smart, and enjoyable as swiping through your favorite app.
+              </p>
+              
+              <p className="mb-4">
+                We believe that finding a home should be inspiring, not overwhelming. That's why our platform seamlessly connects property seekers with the perfect spaces that match their lifestyle, aspirations, and personal taste — no matter where they are in the world.
+              </p>
+              
+              <p className="mb-4">
+                By blending intelligent technology with a deep understanding of user preferences, we empower our community to make faster, confident, and well-informed decisions.
+              </p>
+              
+              <p>
+                At the heart of our mission lies one purpose — to turn the journey of finding a home into an effortless, personalized, and extraordinary experience.
+              </p>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -206,20 +215,33 @@ export function AboutPage() {
             }}>
               Our Vision
             </h3>
-            <p style={{
+            <div style={{
               fontFamily: 'Poppins',
               fontSize: 'clamp(14px, 2vw, 18px)',
               fontWeight: 400,
               color: '#666',
               lineHeight: '1.8'
             }}>
-              We envision a world where finding the perfect property is no longer a daunting task but an exciting 
-              journey of discovery. Our goal is to become the world's most trusted and innovative property matching 
-              platform, where technology and human aspirations meet seamlessly. We see a future where every individual, 
-              regardless of location or background, has access to personalized property recommendations that align 
-              perfectly with their dreams and requirements. Through continuous innovation and user-centric design, 
-              we aim to set new standards in the real estate industry.
-            </p>
+              <p className="mb-4">
+                We envision a world where finding your perfect property is not a challenge — but a joyful journey of discovery.
+              </p>
+              
+              <p className="mb-4">
+                Our vision is to become the world's most trusted and intelligent property-matching platform, where cutting-edge technology meets human aspiration in perfect harmony.
+              </p>
+              
+              <p className="mb-4">
+                We see a future where every individual, everywhere, can explore properties that are tailored to their dreams, lifestyle, and ambitions — effortlessly and confidently.
+              </p>
+              
+              <p className="mb-4">
+                Through continuous innovation, intuitive design, and deep personalization, we aim to set a new global standard in real estate — one where technology doesn't replace the human touch, but enhances it.
+              </p>
+              
+              <p>
+                At our core, we're shaping a future where finding a home isn't just about location — it's about connection, belonging, and possibility.
+              </p>
+            </div>
           </motion.div>
         </motion.div>
 

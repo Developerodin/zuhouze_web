@@ -87,12 +87,7 @@ export function EasySteps() {
           {/* Left Side Cards */}
           <div className="flex flex-col gap-6 w-full lg:w-auto">
             {/* Mobile Only Text - Above First Card */}
-            <p 
-              className="block lg:hidden text-center md:text-base mb-2 px-4 text-black"
-              style={{ fontFamily: 'var(--font-fredoka)', fontSize: '16px' }}
-            >
-              Zuhouze app is set to revolutionize the real estate marketplace.
-            </p>
+            
 
             {/* Top Left Card - Connect & Visit */}
             <motion.div
@@ -184,12 +179,29 @@ export function EasySteps() {
             viewport={{ once: true }}
           >
             {/* Text above PhoneVideo - Mobile Only */}
-            <p 
+
+            <AnimatedGradientText
+              style={{
+                background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                fontSize: 'inherit',
+                fontWeight: 'inherit',
+                fontFamily: 'var(--font-fredoka)',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+              }}
+            >
+              Zuhouze app is set to revolutionize the real estate marketplace.
+            </AnimatedGradientText>
+            {/* <p 
               className="block lg:hidden text-center  md:text-base mt-2 px-4 text-black"
               style={{ fontFamily: 'var(--font-fredoka)', fontSize: '16px' }}
             >
               Zuhouze app will bring a revolutionary change to the real estate marketplace
-            </p>
+            </p> */}
 
             <div className="relative w-64 h-96 lg:w-80 lg:h-[500px]">
               <Image
@@ -201,12 +213,12 @@ export function EasySteps() {
             </div>
 
             {/* Text below PhoneVideo - Mobile Only */}
-            <p 
+            {/* <p 
               className="block lg:hidden text-center  md:text-base mt-4 px-4 text-black"
               style={{ fontFamily: 'var(--font-fredoka)', fontSize: '16px' }}
             >
               Zuhouze app is paving the way for a new era in the real estate marketplace.
-            </p>
+            </p> */}
           </motion.div>
 
           {/* Right Side Cards */}
