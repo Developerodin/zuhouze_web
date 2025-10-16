@@ -179,7 +179,7 @@ export function EasySteps() {
             viewport={{ once: true }}
           >
             {/* Text above PhoneVideo - Mobile Only */}
-
+              <h1 className="text-xl sm:text-xl md:text-3xl lg:text-3xl text-center" style={{ fontFamily: 'var(--font-fredoka)' }}>
             <AnimatedGradientText
               style={{
                 background: 'linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(151, 79, 223, 1), rgba(28, 114, 255, 1), rgba(16, 185, 129, 1))',
@@ -194,8 +194,9 @@ export function EasySteps() {
                 textAlign: 'center',
               }}
             >
-              Zuhouze app is set to revolutionize the real estate marketplace.
+              Zuhouze app is paving the way for a new era in the real estate marketplace.
             </AnimatedGradientText>
+            </h1>
             {/* <p 
               className="block lg:hidden text-center  md:text-base mt-2 px-4 text-black"
               style={{ fontFamily: 'var(--font-fredoka)', fontSize: '16px' }}
