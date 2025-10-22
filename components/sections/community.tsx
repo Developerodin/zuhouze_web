@@ -156,7 +156,7 @@ export function Community() {
               {/* Join Button */}
               <div className="px-2">
                 <ShimmerButton
-                  className="px-6 py-3 text-sm font-semibold bg-black text-white hover:bg-black/90"
+                  className="px-6 py-3 text-sm font-semibold bg-black text-white hover:bg-black/90 hover:text-black"
                   borderRadius="8px"
                   onClick={() => {}}
                 >

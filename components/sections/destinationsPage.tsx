@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { ShineBorder } from "@/components/ui/shine-border";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 const destinations = [
   {
@@ -12,183 +13,57 @@ const destinations = [
     name: "Switzerland",
     countryCode: "ch",
     description: "Stunning natural beauty, world-class healthcare, safety, high salaries, political stability.",
-    video: "/assets/Video/HeroBg.mp4"
+    video: "https://vsc-files-storage.s3.ap-south-1.amazonaws.com/1761109748824-1f9c1ee4-41d3-428e-8129-827d9827e886.mp4"
   },
   {
     id: 2,
     name: "Denmark",
     countryCode: "dk",
     description: "Happiness leader, excellent healthcare & education, work-life balance, low corruption.",
-    video: "/assets/Video/HeroBg.mp4"
+    video: "https://vsc-files-storage.s3.ap-south-1.amazonaws.com/1761109791675-82cb671d-1173-4b96-9594-e1ace6f92980.mp4"
   },
   {
     id: 3,
     name: "Norway",
     countryCode: "no",
     description: "High income, clean environment, great welfare system, free education & healthcare.",
-    video: "/assets/Video/HeroBg.mp4"
+    video: "https://vsc-files-storage.s3.ap-south-1.amazonaws.com/1761109837972-a3fa31f1-559e-4c9c-aaaf-348bb8b35840.mp4"
   },
   {
     id: 4,
     name: "Finland",
     countryCode: "fi",
     description: "Safest country, top education system, happiest population, pristine environment.",
-    video: "/assets/Video/HeroBg.mp4"
+    video: "https://vsc-files-storage.s3.ap-south-1.amazonaws.com/1761109865681-8a0f9171-6cb0-4890-98a2-b4c8c9f6c4ba.mp4"
   },
   {
     id: 5,
     name: "Sweden",
     countryCode: "se",
     description: "Excellent welfare, gender equality, green spaces, great childcare & work culture.",
-    video: "/assets/Video/HeroBg.mp4"
+    video: "https://vsc-files-storage.s3.ap-south-1.amazonaws.com/1761109915157-86a0344b-0f6a-4aa7-80ad-9ed37380d98f.mp4"
   },
   {
     id: 6,
     name: "Canada",
     countryCode: "ca",
     description: "Diverse society, immigration-friendly, great healthcare & education, safe cities.",
-    video: "/assets/Video/HeroBg.mp4"
+    video: "https://vsc-files-storage.s3.ap-south-1.amazonaws.com/1761109946416-acf6d141-5ad7-451a-a822-29177d689e5f.mp4"
   },
   {
     id: 7,
     name: "Australia",
     countryCode: "au",
     description: "Beautiful weather, strong economy, relaxed lifestyle, top universities.",
-    video: "/assets/Video/HeroBg.mp4"
+    video: "https://vsc-files-storage.s3.ap-south-1.amazonaws.com/1761109977158-f94a8a97-f891-4dcb-a412-7c959d30c183.mp4"
   },
   {
     id: 8,
     name: "New Zealand",
     countryCode: "nz",
     description: "Peaceful, clean, nature-filled, friendly people, strong community values.",
-    video: "/assets/Video/HeroBg.mp4"
+    video: "https://vsc-files-storage.s3.ap-south-1.amazonaws.com/1761110007127-bccd4ac6-079c-4c22-b555-a09d08042698.mp4"
   },
-  {
-    id: 9,
-    name: "Netherlands",
-    countryCode: "nl",
-    description: "Great infrastructure, happy society, cycling culture, excellent healthcare & education.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 10,
-    name: "Germany",
-    countryCode: "de",
-    description: "Strong economy, great jobs, affordable education, modern infrastructure.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 11,
-    name: "Austria",
-    countryCode: "at",
-    description: "Safe, scenic, high living standards, great transport & social security.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 12,
-    name: "Singapore",
-    countryCode: "sg",
-    description: "Super clean, ultra-safe, great healthcare, education, and business environment.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 13,
-    name: "Japan",
-    countryCode: "jp",
-    description: "Safe, efficient, rich culture, excellent infrastructure, great healthcare.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 14,
-    name: "Iceland",
-    countryCode: "is",
-    description: "Peaceful, gender-equal, low pollution, beautiful nature, high salaries.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 15,
-    name: "Ireland",
-    countryCode: "ie",
-    description: "Friendly people, good economy, English-speaking, top education & healthcare.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 16,
-    name: "United Kingdom",
-    countryCode: "gb",
-    description: "Global culture, strong education, stable economy.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 17,
-    name: "France",
-    countryCode: "fr",
-    description: "Food, culture, healthcare, long life expectancy.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 18,
-    name: "Portugal",
-    countryCode: "pt",
-    description: "Affordable Europe, warm climate, safe & peaceful.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 19,
-    name: "Spain",
-    countryCode: "es",
-    description: "Great weather, relaxed lifestyle, excellent healthcare.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 20,
-    name: "United States",
-    countryCode: "us",
-    description: "Top for innovation, job opportunities, and lifestyle diversity.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 21,
-    name: "Turkey",
-    countryCode: "tr",
-    description: "Relatively low prices, rising development, citizenship-by-investment options.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 22,
-    name: "UAE",
-    countryCode: "ae",
-    description: "Modern infrastructure, favorable tax environment, global connectivity.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 23,
-    name: "Greece",
-    countryCode: "gr",
-    description: "Golden Visa via property investment, reasonable entry prices.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 24,
-    name: "Cyprus",
-    countryCode: "cy",
-    description: "Residency or citizenship via property investments in capital cities or tourist zones.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 25,
-    name: "Malta",
-    countryCode: "mt",
-    description: "Residency or citizenship via property investments, excellent Mediterranean location.",
-    video: "/assets/Video/HeroBg.mp4"
-  },
-  {
-    id: 26,
-    name: "Panama",
-    countryCode: "pa",
-    description: "Strong foreign investment laws, stable market history.",
-    video: "/assets/Video/HeroBg.mp4"
-  }
 ];
 
 function DestinationCard({ destination }: { destination: typeof destinations[0] }) {
@@ -212,7 +87,7 @@ function DestinationCard({ destination }: { destination: typeof destinations[0] 
 
   return (
     <motion.div
-      className="relative rounded-2xl overflow-hidden bg-white cursor-pointer transition-all duration-300"
+      className="relative rounded-2xl overflow-hidden bg-white cursor-pointer transition-all duration-300 h-[400px]"
       style={{
         border: isHovered ? 'none' : '2px solid #ECECEC'
       }}
@@ -232,8 +107,8 @@ function DestinationCard({ destination }: { destination: typeof destinations[0] 
       )}
       
       <div className="relative z-10 h-full flex flex-col">
-        {/* Video Section - 65% height */}
-        <div className="relative" style={{ height: '65%', minHeight: '250px' }}>
+        {/* Video Section */}
+        <div className="relative h-[250px]">
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
@@ -245,8 +120,8 @@ function DestinationCard({ destination }: { destination: typeof destinations[0] 
           </video>
         </div>
 
-        {/* Content Section - 35% height */}
-        <div className="p-6 flex flex-col justify-between" style={{ height: '35%', minHeight: '150px' }}>
+        {/* Content Section */}
+        <div className="p-6 flex flex-col justify-between flex-1">
           <div>
             <div className="flex items-center gap-3 mb-3">
               <h3 
@@ -285,7 +160,7 @@ function DestinationCard({ destination }: { destination: typeof destinations[0] 
 
 export function DestinationsPage() {
   return (
-    <section className="py-4 md:py-10 bg-white">
+    <section className="py-4 md:py-10 bg-white mt-10">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-10">
         {/* Explore Global Opportunities */}
         <motion.div
@@ -342,7 +217,7 @@ export function DestinationsPage() {
             </h2>
           </div>
 
-          {/* Right Side - 26+ countries */}
+          {/* Right Side - 8+ countries */}
           <div className="flex flex-col items-end">
             <div className="flex items-baseline gap-2">
               <span style={{ 
@@ -351,7 +226,7 @@ export function DestinationsPage() {
                 fontWeight: 400, 
                 color: '#000'
               }}>
-                26+
+                8+
               </span>
               <span style={{ 
                 fontFamily: 'var(--font-fredoka)', 
@@ -384,11 +259,28 @@ export function DestinationsPage() {
         </motion.div>
 
         {/* Destinations Grid - 4 cards per row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
           {destinations.map((destination) => (
             <DestinationCard key={destination.id} destination={destination} />
           ))}
         </div>
+
+        {/* Explore More Button */}
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <ShimmerButton
+            className="px-8 py-3 text-base font-semibold hover:text-black"
+            borderRadius="8px"
+            onClick={() => {}}
+          >
+            Explore More
+          </ShimmerButton>
+        </motion.div>
       </div>
     </section>
   );
