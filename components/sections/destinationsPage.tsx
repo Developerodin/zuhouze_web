@@ -2,7 +2,7 @@
 
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
@@ -68,13 +68,43 @@ const destinations = [
 
 function DestinationCard({ destination }: { destination: typeof destinations[0] }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Load video metadata on mount for iOS Safari
+  useEffect(() => {
+    if (videoRef.current) {
+      // Force iOS to load video metadata to show first frame
+      const video = videoRef.current;
+      
+      const handleLoadedMetadata = () => {
+        // Seek to first frame to display it on iOS
+        video.currentTime = 0.01;
+      };
+      
+      video.addEventListener('loadedmetadata', handleLoadedMetadata);
+      video.load();
+      
+      return () => {
+        video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      };
+    }
+  }, []);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Auto-play was prevented, ignore
+        });
+      }
+    }
+  };
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
+    handlePlay();
   };
 
   const handleMouseLeave = () => {
@@ -85,11 +115,24 @@ function DestinationCard({ destination }: { destination: typeof destinations[0] 
     }
   };
 
+  const handleTouchStart = () => {
+    setIsTouched(true);
+    handlePlay();
+  };
+
+  const handleTouchEnd = () => {
+    setIsTouched(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
   return (
     <motion.div
       className="relative rounded-2xl overflow-hidden bg-white cursor-pointer transition-all duration-300 h-[400px]"
       style={{
-        border: isHovered ? 'none' : '2px solid #ECECEC'
+        border: isHovered || isTouched ? 'none' : '2px solid #ECECEC'
       }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -97,8 +140,10 @@ function DestinationCard({ destination }: { destination: typeof destinations[0] 
       viewport={{ once: true }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
-      {isHovered && (
+      {(isHovered || isTouched) && (
         <ShineBorder
           borderWidth={2}
           duration={10}
@@ -108,13 +153,15 @@ function DestinationCard({ destination }: { destination: typeof destinations[0] 
       
       <div className="relative z-10 h-full flex flex-col">
         {/* Video Section */}
-        <div className="relative h-[250px]">
+        <div className="relative h-[250px] bg-black">
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
             muted
             loop
             playsInline
+            preload="metadata"
+            style={{ backgroundColor: '#000' }}
           >
             <source src={destination.video} type="video/mp4" />
           </video>

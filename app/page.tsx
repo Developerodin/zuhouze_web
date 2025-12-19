@@ -19,7 +19,6 @@ export default function Home() {
         <EasySteps />
         <GlobeSection />
         <Properties/>
-        <Community />
         <FAQ />
         <Contact />
         <Footer />
