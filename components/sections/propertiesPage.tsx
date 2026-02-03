@@ -6,10 +6,17 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 
-const locations = ["Dubai", "Singapore", "Malaysia", "India"];
+const locations = ["India", "Dubai", "Singapore", "Malaysia"] as const;
+const DEFAULT_LOCATION = locations[0]; // India – single source of truth for "first"
 
-// Image mapping for each location (4 images per location)
-const locationImages = {
+// Image mapping for each location (4 images per location, India first to match locations order)
+const locationImages: Record<(typeof locations)[number], { first: string; second: string; third: string; fourth: string }> = {
+  India: {
+    first: "/assets/India.svg",
+    second: "/assets/India2.svg",
+    third: "/assets/India3.svg",
+    fourth: "/assets/India4.svg"
+  },
   Dubai: {
     first: "/assets/NewProperty.svg",
     second: "/assets/NewProperty_2.svg",
@@ -27,17 +34,11 @@ const locationImages = {
     second: "/assets/Malaysia2.svg",
     third: "/assets/Malaysia3.svg",
     fourth: "/assets/Malaysia4.svg"
-  },
-  India: {
-    first: "/assets/India.svg",
-    second: "/assets/India2.svg",
-    third: "/assets/India3.svg",
-    fourth: "/assets/India4.svg"
   }
 };
 
 export function PropertiesPage() {
-  const [activeLocation, setActiveLocation] = useState("Dubai");
+  const [activeLocation, setActiveLocation] = useState<(typeof locations)[number]>(DEFAULT_LOCATION);
 
   return (
     <section id="properties" className="py-4 md:py-10 bg-white mt-20">

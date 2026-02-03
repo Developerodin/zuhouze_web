@@ -7,10 +7,15 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const locations = ["Dubai", "Singapore", "Malaysia", "India"];
+const locations = ["India", "Dubai", "Singapore", "Malaysia"] as const;
+const DEFAULT_LOCATION = locations[0]; // India – single source of truth for "first"
 
-// Image mapping for each location
-const locationImages = {
+// Image mapping for each location (India first to match locations order)
+const locationImages: Record<(typeof locations)[number], { first: string; second: string }> = {
+  India: {
+    first: "/assets/India.svg",
+    second: "/assets/India2.svg"
+  },
   Dubai: {
     first: "/assets/NewProperty.svg",
     second: "/assets/NewProperty_2.svg"
@@ -22,15 +27,11 @@ const locationImages = {
   Malaysia: {
     first: "/assets/Malaysia.svg",
     second: "/assets/Malaysia2.svg"
-  },
-  India: {
-    first: "/assets/India.svg",
-    second: "/assets/India2.svg"
   }
 };
 
 export function Properties() {
-  const [activeLocation, setActiveLocation] = useState("Dubai");
+  const [activeLocation, setActiveLocation] = useState<(typeof locations)[number]>(DEFAULT_LOCATION);
   const router = useRouter();
 
   return (
