@@ -1,9 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Globe } from "@/components/ui/globe";
-import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import Link from "next/link";
+
+const Globe = dynamic(
+  () => import("@/components/ui/globe").then((mod) => mod.Globe),
+  {
+    ssr: false,
+    loading: () => <div className="h-full w-full" aria-hidden="true" />,
+  }
+);
 
 export function GlobeSection() {
   return (
@@ -139,20 +146,12 @@ Your next property is waiting — just tap and explore with Zuhouze.
           </Link>
         </motion.div>
 
-        {/* Globe — single instance, responsive layout (avoids hidden duplicate mount) */}
-        <motion.div
-          className="absolute z-30 top-[180px] left-0 right-0 flex justify-center items-center md:top-auto md:bottom-0 md:left-auto md:right-0 md:block"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <div className="relative flex justify-center items-center w-full h-[250px] md:h-[562px] md:block">
-            <div className="relative w-[250px] h-[250px] md:absolute md:top-[100px] md:-right-[10px] md:w-[800px] md:h-[800px]">
-              <Globe className="h-full w-full max-w-none" />
-            </div>
+        {/* Globe — always visible wrapper with explicit size (no opacity animation) */}
+        <div className="absolute z-30 top-[180px] left-0 right-0 flex justify-center md:top-auto md:bottom-0 md:left-auto md:right-0 md:block md:h-[562px] md:w-[800px]">
+          <div className="relative h-[250px] w-[250px] md:absolute md:top-[100px] md:-right-[10px] md:h-[800px] md:w-[800px]">
+            <Globe className="h-full w-full" />
           </div>
-        </motion.div>
+        </div>
       </div>
 
       

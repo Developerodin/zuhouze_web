@@ -1,12 +1,13 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useLayoutEffect, useRef } from "react"
 import createGlobe, { COBEOptions } from "cobe"
 import { useMotionValue, useSpring } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
 const MOVEMENT_DAMPING = 1400
+const MAX_INIT_ATTEMPTS = 100
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 1000,
@@ -45,10 +46,12 @@ export function Globe({
 }) {
   const phiRef = useRef(0)
   const widthRef = useRef(0)
+  const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null)
   const pointerInteracting = useRef<number | null>(null)
   const pointerInteractionMovement = useRef(0)
+  const initAttemptsRef = useRef(0)
 
   const r = useMotionValue(0)
   const rs = useSpring(r, {
@@ -72,16 +75,29 @@ export function Globe({
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const container = containerRef.current
     const canvas = canvasRef.current
-    if (!canvas) return
+    if (!container || !canvas) return
 
-    const initGlobe = () => {
-      const size = canvas.offsetWidth
-      if (size === 0) return
+    let frameId = 0
+    let destroyed = false
+    const retryTimeouts: ReturnType<typeof setTimeout>[] = []
 
-      widthRef.current = size
+    const getSize = () => {
+      const width = container.offsetWidth
+      const height = container.offsetHeight
+      return width > 0 ? width : height
+    }
+
+    const destroyGlobe = () => {
       globeRef.current?.destroy()
+      globeRef.current = null
+    }
+
+    const createGlobeInstance = (size: number) => {
+      destroyGlobe()
+      widthRef.current = size
 
       globeRef.current = createGlobe(canvas, {
         ...config,
@@ -98,41 +114,83 @@ export function Globe({
       canvas.style.opacity = "1"
     }
 
-    const resizeObserver = new ResizeObserver(() => {
-      const size = canvas.offsetWidth
+    const ensureGlobe = (): boolean => {
+      if (destroyed || globeRef.current) return Boolean(globeRef.current)
+
+      const size = getSize()
+      if (size === 0) return false
+
+      createGlobeInstance(size)
+      return true
+    }
+
+    const scheduleEnsureGlobe = () => {
+      if (ensureGlobe() || destroyed || initAttemptsRef.current >= MAX_INIT_ATTEMPTS) {
+        return
+      }
+
+      initAttemptsRef.current += 1
+      frameId = requestAnimationFrame(scheduleEnsureGlobe)
+    }
+
+    const handleResize = () => {
+      const size = getSize()
       if (size === 0) return
 
-      if (widthRef.current === 0 || Math.abs(widthRef.current - size) > 8) {
-        initGlobe()
-      } else {
-        widthRef.current = size
+      if (!globeRef.current) {
+        ensureGlobe()
+        return
       }
-    })
 
-    resizeObserver.observe(canvas)
+      widthRef.current = size
+    }
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(initGlobe)
-    })
+    const handleContextLost = (event: Event) => {
+      event.preventDefault()
+      destroyGlobe()
+      if (!destroyed) {
+        retryTimeouts.push(setTimeout(() => ensureGlobe(), 100))
+      }
+    }
+
+    const handleContextRestored = () => {
+      if (!destroyed) {
+        ensureGlobe()
+      }
+    }
+
+    canvas.addEventListener("webglcontextlost", handleContextLost)
+    canvas.addEventListener("webglcontextrestored", handleContextRestored)
+
+    const resizeObserver = new ResizeObserver(handleResize)
+    resizeObserver.observe(container)
+
+    initAttemptsRef.current = 0
+    scheduleEnsureGlobe()
+    retryTimeouts.push(setTimeout(handleResize, 100))
+    retryTimeouts.push(setTimeout(handleResize, 500))
+
+    window.addEventListener("load", handleResize)
 
     return () => {
+      destroyed = true
+      cancelAnimationFrame(frameId)
+      retryTimeouts.forEach(clearTimeout)
+      window.removeEventListener("load", handleResize)
+      canvas.removeEventListener("webglcontextlost", handleContextLost)
+      canvas.removeEventListener("webglcontextrestored", handleContextRestored)
       resizeObserver.disconnect()
-      globeRef.current?.destroy()
-      globeRef.current = null
+      destroyGlobe()
     }
-  }, [rs, config])
+  }, [config, rs])
 
   return (
     <div
-      className={cn(
-        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]",
-        className
-      )}
+      ref={containerRef}
+      className={cn("relative h-full w-full", className)}
     >
       <canvas
-        className={cn(
-          "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
-        )}
+        className="h-full w-full opacity-0 transition-opacity duration-500"
         ref={canvasRef}
         onPointerDown={(e) => {
           pointerInteracting.current = e.clientX
