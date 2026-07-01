@@ -43,9 +43,10 @@ export function Globe({
   className?: string
   config?: COBEOptions
 }) {
-  let phi = 0
-  let width = 0
+  const phiRef = useRef(0)
+  const widthRef = useRef(0)
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null)
   const pointerInteracting = useRef<number | null>(null)
   const pointerInteractionMovement = useRef(0)
 
@@ -72,31 +73,52 @@ export function Globe({
   }
 
   useEffect(() => {
-    const onResize = () => {
-      if (canvasRef.current) {
-        width = canvasRef.current.offsetWidth
-      }
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const initGlobe = () => {
+      const size = canvas.offsetWidth
+      if (size === 0) return
+
+      widthRef.current = size
+      globeRef.current?.destroy()
+
+      globeRef.current = createGlobe(canvas, {
+        ...config,
+        width: size * 2,
+        height: size * 2,
+        onRender: (state) => {
+          if (!pointerInteracting.current) phiRef.current += 0.005
+          state.phi = phiRef.current + rs.get()
+          state.width = widthRef.current * 2
+          state.height = widthRef.current * 2
+        },
+      })
+
+      canvas.style.opacity = "1"
     }
 
-    window.addEventListener("resize", onResize)
-    onResize()
+    const resizeObserver = new ResizeObserver(() => {
+      const size = canvas.offsetWidth
+      if (size === 0) return
 
-    const globe = createGlobe(canvasRef.current!, {
-      ...config,
-      width: width * 2,
-      height: width * 2,
-      onRender: (state) => {
-        if (!pointerInteracting.current) phi += 0.005
-        state.phi = phi + rs.get()
-        state.width = width * 2
-        state.height = width * 2
-      },
+      if (widthRef.current === 0 || Math.abs(widthRef.current - size) > 8) {
+        initGlobe()
+      } else {
+        widthRef.current = size
+      }
     })
 
-    setTimeout(() => (canvasRef.current!.style.opacity = "1"), 0)
+    resizeObserver.observe(canvas)
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(initGlobe)
+    })
+
     return () => {
-      globe.destroy()
-      window.removeEventListener("resize", onResize)
+      resizeObserver.disconnect()
+      globeRef.current?.destroy()
+      globeRef.current = null
     }
   }, [rs, config])
 

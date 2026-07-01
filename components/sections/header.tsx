@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Search, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+// import { RainbowButton } from "@/components/ui/rainbow-button";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -106,9 +106,9 @@ export function Header() {
             </a>
           </nav>
 
-          {/* Desktop Buttons Section */}
+          {/* Desktop Buttons Section — spacer kept for header alignment */}
           <div className="hidden lg:flex items-center space-x-4" style={{ width: "500px", justifyContent: "flex-end" }}>
-            <RainbowButton 
+            {/* <RainbowButton
               variant="outline"
               className="px-4 py-2"
               style={{
@@ -121,21 +121,18 @@ export function Header() {
             >
               Builder Login
             </RainbowButton>
-            <button 
+            <button
               className="px-4 py-1 transition-all duration-200 text-white bg-black hover:bg-white hover:text-black hover:border border-black"
               style={{
                 fontFamily: "var(--font-poppins)",
                 fontSize: "18px",
                 fontWeight: 500,
                 lineHeight: "normal",
-                
                 borderRadius: "10px",
-               
-
               }}
             >
               Sign up
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -225,9 +222,9 @@ export function Header() {
                 </a>
               </nav>
 
-              {/* Mobile Buttons */}
-              <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
-                <RainbowButton 
+              {/* Mobile Buttons — commented out to preserve nav link alignment */}
+              {/* <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
+                <RainbowButton
                   variant="outline"
                   className="w-full px-6 py-3 rounded-lg"
                   style={{
@@ -240,7 +237,7 @@ export function Header() {
                 >
                   Builder Login
                 </RainbowButton>
-                <button 
+                <button
                   className="w-full px-6 py-1 transition-all duration-200 rounded-lg hover:bg-white hover:text-black"
                   style={{
                     fontFamily: "var(--font-poppins)",
@@ -254,7 +251,7 @@ export function Header() {
                 >
                   Sign up
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         )}

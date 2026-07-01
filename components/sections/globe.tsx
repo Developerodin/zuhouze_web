@@ -139,34 +139,17 @@ Your next property is waiting — just tap and explore with Zuhouze.
           </Link>
         </motion.div>
 
-        {/* Globe Section - Desktop Bottom Right */}
+        {/* Globe — single instance, responsive layout (avoids hidden duplicate mount) */}
         <motion.div
-          className="absolute bottom-0 right-0 z-30 hidden md:block"
+          className="absolute z-30 top-[180px] left-0 right-0 flex justify-center items-center md:top-auto md:bottom-0 md:left-auto md:right-0 md:block"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          {/* Globe Container - Show only upper half */}
-          <div className="relative h-[562px] mt-0" >
-            <div className="absolute top-[100px] -right-[10px] w-[800px] h-[800px] " >
-              <Globe className="h-full max-w-[1800px] " />
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Globe Section - Mobile Centered */}
-        <motion.div
-          className="absolute top-[180px] left-0 right-0 z-30 md:hidden flex justify-center items-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          {/* Globe Container - Mobile centered */}
-          <div className="relative flex justify-center items-center w-full h-[250px]" >
-            <div className="relative w-[250px] h-[250px]" >
-              <Globe className="h-full w-full" />
+          <div className="relative flex justify-center items-center w-full h-[250px] md:h-[562px] md:block">
+            <div className="relative w-[250px] h-[250px] md:absolute md:top-[100px] md:-right-[10px] md:w-[800px] md:h-[800px]">
+              <Globe className="h-full w-full max-w-none" />
             </div>
           </div>
         </motion.div>
