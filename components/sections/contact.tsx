@@ -104,7 +104,7 @@ export function Contact() {
                   Phone
                 </p>
                 <a 
-                  href="tel:9967567964"
+                  href="tel:+919967567964"
                   style={{ 
                     fontFamily: 'var(--font-fredoka)', 
                     fontSize: "clamp(14px, 3vw, 18px)", 
@@ -113,7 +113,7 @@ export function Contact() {
                   }}
                   className="hover:text-blue-600 transition-colors"
                 >
-                  9967567964
+                  +919967567964
                 </a>
               </div>
             </div>
