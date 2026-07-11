@@ -18,7 +18,7 @@ export default function Home() {
         <HeroVideo />
         <EasySteps />
         <GlobeSection />
-        <Properties/>
+        <Properties />
         <FAQ />
         <Contact />
         <Footer />

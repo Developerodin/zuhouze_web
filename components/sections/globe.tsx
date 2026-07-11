@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { openAppDownload } from "@/lib/appLinks";
 
 const Globe = dynamic(
   () => import("@/components/ui/globe").then((mod) => mod.Globe),
@@ -79,18 +79,17 @@ Explore dream homes and investments across the world with ease.
 Your next property is waiting — just tap and explore with Zuhouze.
             </p>
           </motion.p>
-<Link href="/properties">
-          <motion.p
+<motion.p
             className="text-lg md:text-xl text-black mb-1 cursor-pointer hover:opacity-70 transition-opacity"
             style={{ fontFamily: 'var(--font-fredoka)' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            onClick={() => openAppDownload()}
           >
             Spin and explore →
           </motion.p>
-          </Link>
 
         </motion.div>
 
@@ -132,7 +131,6 @@ Your next property is waiting — just tap and explore with Zuhouze.
           </h1>
           
           
-          <Link href="/properties">
           <motion.p
             className="text-lg text-black mb-4 cursor-pointer hover:opacity-70 transition-opacity"
             style={{ fontFamily: 'var(--font-fredoka)' }}
@@ -140,10 +138,10 @@ Your next property is waiting — just tap and explore with Zuhouze.
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            onClick={() => openAppDownload()}
           >
             Spin and explore →
           </motion.p>
-          </Link>
         </motion.div>
 
         {/* Globe — always visible wrapper with explicit size (no opacity animation) */}

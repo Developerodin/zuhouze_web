@@ -75,6 +75,17 @@ export function PropertiesPage() {
               className="sm:w-[46px] sm:h-[46px]"
             />
           </div>
+          <p
+            className="mt-2 text-black"
+            style={{
+              fontFamily: "var(--font-fredoka)",
+              fontSize: "clamp(16px, 3vw, 20px)",
+              fontWeight: 400,
+              lineHeight: "1.4",
+            }}
+          >
+            A Modern Global Real Estate Platform for Discovering Properties Worldwide
+          </p>
         </motion.div>
 
         {/* Main Header Section */}

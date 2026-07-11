@@ -56,7 +56,7 @@ export function Header() {
             >
               About
             </a>
-            <a
+            {/* <a
               href="/properties"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
               style={{
@@ -67,7 +67,7 @@ export function Header() {
               }}
             >
               Properties
-            </a>
+            </a> */}
             <a
               href="/destinations"
               className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-2 rounded-full hover:bg-white/20"
@@ -168,7 +168,7 @@ export function Header() {
                 >
                   About
                 </a>
-                <a
+                {/* <a
                   href="/properties"
                   className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-3 rounded-lg hover:bg-gray-100"
                   style={{
@@ -180,7 +180,7 @@ export function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Properties
-                </a>
+                </a> */}
                 <a
                   href="/destinations"
                   className="text-black hover:text-gray-700 transition-colors duration-200 font-medium px-4 py-3 rounded-lg hover:bg-gray-100"
