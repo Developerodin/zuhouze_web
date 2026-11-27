@@ -26,6 +26,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Zuhouze",
   description: "Zuhouze",
+  verification: {
+    google: "4N3HkhZrQlaYiOPQRUSj5xq6gjkdc_XoN1iB5dXQZpM",
+  },
 };
 
 export default function RootLayout({
